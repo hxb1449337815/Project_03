@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorPackagedetailsMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorPackagedetails">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="WARENAME" jdbcType="NUMERIC" property="WARENAME" />
+    <result column="DESTINATION" jdbcType="VARCHAR" property="DESTINATION" />
+    <result column="TICKET" jdbcType="NUMERIC" property="TICKET" />
+    <result column="ACTUALCARGOINT" jdbcType="NUMERIC" property="ACTUALCARGOINT" />
+    <result column="CARGOINT" jdbcType="NUMERIC" property="CARGOINT" />
+    <result column="WEIGHT" jdbcType="NUMERIC" property="WEIGHT" />
+    <result column="VOLUME" jdbcType="NUMERIC" property="VOLUME" />
+    <result column="SERVICE" jdbcType="NUMERIC" property="SERVICE" />
+    <result column="IMPORTANTHINTS" jdbcType="VARCHAR" property="IMPORTANTHINTS" />
+    <result column="ASK" jdbcType="VARCHAR" property="ASK" />
+    <result column="INPUTTYPE" jdbcType="VARCHAR" property="INPUTTYPE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WARENAME, DESTINATION, TICKET, ACTUALCARGOINT, CARGOINT, WEIGHT, VOLUME, SERVICE, 
+    IMPORTANTHINTS, ASK, INPUTTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_PACKAGEDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_PACKAGEDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorPackagedetails">
+    insert into SOR_PACKAGEDETAILS (ID, WARENAME, DESTINATION, 
+      TICKET, ACTUALCARGOINT, CARGOINT, 
+      WEIGHT, VOLUME, SERVICE, 
+      IMPORTANTHINTS, ASK, INPUTTYPE
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{WARENAME,jdbcType=NUMERIC}, #{DESTINATION,jdbcType=VARCHAR}, 
+      #{TICKET,jdbcType=NUMERIC}, #{ACTUALCARGOINT,jdbcType=NUMERIC}, #{CARGOINT,jdbcType=NUMERIC}, 
+      #{WEIGHT,jdbcType=NUMERIC}, #{VOLUME,jdbcType=NUMERIC}, #{SERVICE,jdbcType=NUMERIC}, 
+      #{IMPORTANTHINTS,jdbcType=VARCHAR}, #{ASK,jdbcType=VARCHAR}, #{INPUTTYPE,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorPackagedetails">
+    insert into SOR_PACKAGEDETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="WARENAME != null">
+        WARENAME,
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION,
+      </if>
+      <if test="TICKET != null">
+        TICKET,
+      </if>
+      <if test="ACTUALCARGOINT != null">
+        ACTUALCARGOINT,
+      </if>
+      <if test="CARGOINT != null">
+        CARGOINT,
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT,
+      </if>
+      <if test="VOLUME != null">
+        VOLUME,
+      </if>
+      <if test="SERVICE != null">
+        SERVICE,
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS,
+      </if>
+      <if test="ASK != null">
+        ASK,
+      </if>
+      <if test="INPUTTYPE != null">
+        INPUTTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="WARENAME != null">
+        #{WARENAME,jdbcType=NUMERIC},
+      </if>
+      <if test="DESTINATION != null">
+        #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="TICKET != null">
+        #{TICKET,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALCARGOINT != null">
+        #{ACTUALCARGOINT,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOINT != null">
+        #{CARGOINT,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="SERVICE != null">
+        #{SERVICE,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+      <if test="ASK != null">
+        #{ASK,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTTYPE != null">
+        #{INPUTTYPE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorPackagedetails">
+    update SOR_PACKAGEDETAILS
+    <set>
+      <if test="WARENAME != null">
+        WARENAME = #{WARENAME,jdbcType=NUMERIC},
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="TICKET != null">
+        TICKET = #{TICKET,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALCARGOINT != null">
+        ACTUALCARGOINT = #{ACTUALCARGOINT,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOINT != null">
+        CARGOINT = #{CARGOINT,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="SERVICE != null">
+        SERVICE = #{SERVICE,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+      <if test="ASK != null">
+        ASK = #{ASK,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTTYPE != null">
+        INPUTTYPE = #{INPUTTYPE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorPackagedetails">
+    update SOR_PACKAGEDETAILS
+    set WARENAME = #{WARENAME,jdbcType=NUMERIC},
+      DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      TICKET = #{TICKET,jdbcType=NUMERIC},
+      ACTUALCARGOINT = #{ACTUALCARGOINT,jdbcType=NUMERIC},
+      CARGOINT = #{CARGOINT,jdbcType=NUMERIC},
+      WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      SERVICE = #{SERVICE,jdbcType=NUMERIC},
+      IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      ASK = #{ASK,jdbcType=VARCHAR},
+      INPUTTYPE = #{INPUTTYPE,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

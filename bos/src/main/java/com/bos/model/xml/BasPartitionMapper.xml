@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BasPartitionMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BasPartition">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="PROVINCE" />
+    <result column="CITY" jdbcType="VARCHAR" property="CITY" />
+    <result column="COUNTY" jdbcType="VARCHAR" property="COUNTY" />
+    <result column="ZONECODE" jdbcType="VARCHAR" property="ZONECODE" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="KEYWORD" />
+    <result column="STARTINT" jdbcType="NUMERIC" property="STARTINT" />
+    <result column="TERMINATEINT" jdbcType="NUMERIC" property="TERMINATEINT" />
+    <result column="SDINT" jdbcType="NUMERIC" property="SDINT" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PROVINCE, CITY, COUNTY, ZONECODE, KEYWORD, STARTINT, TERMINATEINT, SDINT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_PARTITION
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BAS_PARTITION
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BasPartition">
+    insert into BAS_PARTITION (ID, PROVINCE, CITY, 
+      COUNTY, ZONECODE, KEYWORD, 
+      STARTINT, TERMINATEINT, SDINT
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{PROVINCE,jdbcType=VARCHAR}, #{CITY,jdbcType=VARCHAR}, 
+      #{COUNTY,jdbcType=VARCHAR}, #{ZONECODE,jdbcType=VARCHAR}, #{KEYWORD,jdbcType=VARCHAR}, 
+      #{STARTINT,jdbcType=NUMERIC}, #{TERMINATEINT,jdbcType=NUMERIC}, #{SDINT,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BasPartition">
+    insert into BAS_PARTITION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="PROVINCE != null">
+        PROVINCE,
+      </if>
+      <if test="CITY != null">
+        CITY,
+      </if>
+      <if test="COUNTY != null">
+        COUNTY,
+      </if>
+      <if test="ZONECODE != null">
+        ZONECODE,
+      </if>
+      <if test="KEYWORD != null">
+        KEYWORD,
+      </if>
+      <if test="STARTINT != null">
+        STARTINT,
+      </if>
+      <if test="TERMINATEINT != null">
+        TERMINATEINT,
+      </if>
+      <if test="SDINT != null">
+        SDINT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="PROVINCE != null">
+        #{PROVINCE,jdbcType=VARCHAR},
+      </if>
+      <if test="CITY != null">
+        #{CITY,jdbcType=VARCHAR},
+      </if>
+      <if test="COUNTY != null">
+        #{COUNTY,jdbcType=VARCHAR},
+      </if>
+      <if test="ZONECODE != null">
+        #{ZONECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="KEYWORD != null">
+        #{KEYWORD,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTINT != null">
+        #{STARTINT,jdbcType=NUMERIC},
+      </if>
+      <if test="TERMINATEINT != null">
+        #{TERMINATEINT,jdbcType=NUMERIC},
+      </if>
+      <if test="SDINT != null">
+        #{SDINT,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BasPartition">
+    update BAS_PARTITION
+    <set>
+      <if test="PROVINCE != null">
+        PROVINCE = #{PROVINCE,jdbcType=VARCHAR},
+      </if>
+      <if test="CITY != null">
+        CITY = #{CITY,jdbcType=VARCHAR},
+      </if>
+      <if test="COUNTY != null">
+        COUNTY = #{COUNTY,jdbcType=VARCHAR},
+      </if>
+      <if test="ZONECODE != null">
+        ZONECODE = #{ZONECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="KEYWORD != null">
+        KEYWORD = #{KEYWORD,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTINT != null">
+        STARTINT = #{STARTINT,jdbcType=NUMERIC},
+      </if>
+      <if test="TERMINATEINT != null">
+        TERMINATEINT = #{TERMINATEINT,jdbcType=NUMERIC},
+      </if>
+      <if test="SDINT != null">
+        SDINT = #{SDINT,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BasPartition">
+    update BAS_PARTITION
+    set PROVINCE = #{PROVINCE,jdbcType=VARCHAR},
+      CITY = #{CITY,jdbcType=VARCHAR},
+      COUNTY = #{COUNTY,jdbcType=VARCHAR},
+      ZONECODE = #{ZONECODE,jdbcType=VARCHAR},
+      KEYWORD = #{KEYWORD,jdbcType=VARCHAR},
+      STARTINT = #{STARTINT,jdbcType=NUMERIC},
+      TERMINATEINT = #{TERMINATEINT,jdbcType=NUMERIC},
+      SDINT = #{SDINT,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorStoragedetailsMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorStoragedetails">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="PACKAGEID" jdbcType="VARCHAR" property="PACKAGEID" />
+    <result column="WEIGHT" jdbcType="NUMERIC" property="WEIGHT" />
+    <result column="OUTBOUNDID" jdbcType="VARCHAR" property="OUTBOUNDID" />
+    <result column="STATE" jdbcType="NUMERIC" property="STATE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PACKAGEID, WEIGHT, OUTBOUNDID, STATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_STORAGEDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_STORAGEDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorStoragedetails">
+    insert into SOR_STORAGEDETAILS (ID, PACKAGEID, WEIGHT, 
+      OUTBOUNDID, STATE)
+    values (#{ID,jdbcType=NUMERIC}, #{PACKAGEID,jdbcType=VARCHAR}, #{WEIGHT,jdbcType=NUMERIC}, 
+      #{OUTBOUNDID,jdbcType=VARCHAR}, #{STATE,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorStoragedetails">
+    insert into SOR_STORAGEDETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="PACKAGEID != null">
+        PACKAGEID,
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT,
+      </if>
+      <if test="OUTBOUNDID != null">
+        OUTBOUNDID,
+      </if>
+      <if test="STATE != null">
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="PACKAGEID != null">
+        #{PACKAGEID,jdbcType=VARCHAR},
+      </if>
+      <if test="WEIGHT != null">
+        #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="OUTBOUNDID != null">
+        #{OUTBOUNDID,jdbcType=VARCHAR},
+      </if>
+      <if test="STATE != null">
+        #{STATE,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorStoragedetails">
+    update SOR_STORAGEDETAILS
+    <set>
+      <if test="PACKAGEID != null">
+        PACKAGEID = #{PACKAGEID,jdbcType=VARCHAR},
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="OUTBOUNDID != null">
+        OUTBOUNDID = #{OUTBOUNDID,jdbcType=VARCHAR},
+      </if>
+      <if test="STATE != null">
+        STATE = #{STATE,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorStoragedetails">
+    update SOR_STORAGEDETAILS
+    set PACKAGEID = #{PACKAGEID,jdbcType=VARCHAR},
+      WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      OUTBOUNDID = #{OUTBOUNDID,jdbcType=VARCHAR},
+      STATE = #{STATE,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

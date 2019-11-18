@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.LogLogisticstransferMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.LogLogisticstransfer">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="TRANSFERINT" jdbcType="VARCHAR" property="TRANSFERINT" />
+    <result column="STARTSTATION" jdbcType="VARCHAR" property="STARTSTATION" />
+    <result column="ENDSTATION" jdbcType="VARCHAR" property="ENDSTATION" />
+    <result column="DISPATCHER" jdbcType="VARCHAR" property="DISPATCHER" />
+    <result column="DRIVER" jdbcType="VARCHAR" property="DRIVER" />
+    <result column="DELIVERYPERSON" jdbcType="NUMERIC" property="DELIVERYPERSON" />
+    <result column="DELIVERYDATE" jdbcType="TIMESTAMP" property="DELIVERYDATE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TRANSFERINT, STARTSTATION, ENDSTATION, DISPATCHER, DRIVER, DELIVERYPERSON, DELIVERYDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOG_LOGISTICSTRANSFER
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from LOG_LOGISTICSTRANSFER
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.LogLogisticstransfer">
+    insert into LOG_LOGISTICSTRANSFER (ID, TRANSFERINT, STARTSTATION, 
+      ENDSTATION, DISPATCHER, DRIVER, 
+      DELIVERYPERSON, DELIVERYDATE)
+    values (#{ID,jdbcType=NUMERIC}, #{TRANSFERINT,jdbcType=VARCHAR}, #{STARTSTATION,jdbcType=VARCHAR}, 
+      #{ENDSTATION,jdbcType=VARCHAR}, #{DISPATCHER,jdbcType=VARCHAR}, #{DRIVER,jdbcType=VARCHAR}, 
+      #{DELIVERYPERSON,jdbcType=NUMERIC}, #{DELIVERYDATE,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.LogLogisticstransfer">
+    insert into LOG_LOGISTICSTRANSFER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="TRANSFERINT != null">
+        TRANSFERINT,
+      </if>
+      <if test="STARTSTATION != null">
+        STARTSTATION,
+      </if>
+      <if test="ENDSTATION != null">
+        ENDSTATION,
+      </if>
+      <if test="DISPATCHER != null">
+        DISPATCHER,
+      </if>
+      <if test="DRIVER != null">
+        DRIVER,
+      </if>
+      <if test="DELIVERYPERSON != null">
+        DELIVERYPERSON,
+      </if>
+      <if test="DELIVERYDATE != null">
+        DELIVERYDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="TRANSFERINT != null">
+        #{TRANSFERINT,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTSTATION != null">
+        #{STARTSTATION,jdbcType=VARCHAR},
+      </if>
+      <if test="ENDSTATION != null">
+        #{ENDSTATION,jdbcType=VARCHAR},
+      </if>
+      <if test="DISPATCHER != null">
+        #{DISPATCHER,jdbcType=VARCHAR},
+      </if>
+      <if test="DRIVER != null">
+        #{DRIVER,jdbcType=VARCHAR},
+      </if>
+      <if test="DELIVERYPERSON != null">
+        #{DELIVERYPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYDATE != null">
+        #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.LogLogisticstransfer">
+    update LOG_LOGISTICSTRANSFER
+    <set>
+      <if test="TRANSFERINT != null">
+        TRANSFERINT = #{TRANSFERINT,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTSTATION != null">
+        STARTSTATION = #{STARTSTATION,jdbcType=VARCHAR},
+      </if>
+      <if test="ENDSTATION != null">
+        ENDSTATION = #{ENDSTATION,jdbcType=VARCHAR},
+      </if>
+      <if test="DISPATCHER != null">
+        DISPATCHER = #{DISPATCHER,jdbcType=VARCHAR},
+      </if>
+      <if test="DRIVER != null">
+        DRIVER = #{DRIVER,jdbcType=VARCHAR},
+      </if>
+      <if test="DELIVERYPERSON != null">
+        DELIVERYPERSON = #{DELIVERYPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYDATE != null">
+        DELIVERYDATE = #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.LogLogisticstransfer">
+    update LOG_LOGISTICSTRANSFER
+    set TRANSFERINT = #{TRANSFERINT,jdbcType=VARCHAR},
+      STARTSTATION = #{STARTSTATION,jdbcType=VARCHAR},
+      ENDSTATION = #{ENDSTATION,jdbcType=VARCHAR},
+      DISPATCHER = #{DISPATCHER,jdbcType=VARCHAR},
+      DRIVER = #{DRIVER,jdbcType=VARCHAR},
+      DELIVERYPERSON = #{DELIVERYPERSON,jdbcType=NUMERIC},
+      DELIVERYDATE = #{DELIVERYDATE,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

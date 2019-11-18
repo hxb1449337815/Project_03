@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorCheckboundMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorCheckbound">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="SCANID" jdbcType="NUMERIC" property="SCANID" />
+    <result column="CARGOSUM" jdbcType="NUMERIC" property="CARGOSUM" />
+    <result column="CHECKPERSON" jdbcType="NUMERIC" property="CHECKPERSON" />
+    <result column="CHECKDATE" jdbcType="TIMESTAMP" property="CHECKDATE" />
+    <result column="CHECKCOMPANY" jdbcType="VARCHAR" property="CHECKCOMPANY" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, SCANID, CARGOSUM, CHECKPERSON, CHECKDATE, CHECKCOMPANY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_CHECKBOUND
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_CHECKBOUND
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorCheckbound">
+    insert into SOR_CHECKBOUND (ID, SCANID, CARGOSUM, 
+      CHECKPERSON, CHECKDATE, CHECKCOMPANY
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{SCANID,jdbcType=NUMERIC}, #{CARGOSUM,jdbcType=NUMERIC}, 
+      #{CHECKPERSON,jdbcType=NUMERIC}, #{CHECKDATE,jdbcType=TIMESTAMP}, #{CHECKCOMPANY,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorCheckbound">
+    insert into SOR_CHECKBOUND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="SCANID != null">
+        SCANID,
+      </if>
+      <if test="CARGOSUM != null">
+        CARGOSUM,
+      </if>
+      <if test="CHECKPERSON != null">
+        CHECKPERSON,
+      </if>
+      <if test="CHECKDATE != null">
+        CHECKDATE,
+      </if>
+      <if test="CHECKCOMPANY != null">
+        CHECKCOMPANY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="SCANID != null">
+        #{SCANID,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOSUM != null">
+        #{CARGOSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="CHECKPERSON != null">
+        #{CHECKPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="CHECKDATE != null">
+        #{CHECKDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CHECKCOMPANY != null">
+        #{CHECKCOMPANY,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorCheckbound">
+    update SOR_CHECKBOUND
+    <set>
+      <if test="SCANID != null">
+        SCANID = #{SCANID,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOSUM != null">
+        CARGOSUM = #{CARGOSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="CHECKPERSON != null">
+        CHECKPERSON = #{CHECKPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="CHECKDATE != null">
+        CHECKDATE = #{CHECKDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CHECKCOMPANY != null">
+        CHECKCOMPANY = #{CHECKCOMPANY,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorCheckbound">
+    update SOR_CHECKBOUND
+    set SCANID = #{SCANID,jdbcType=NUMERIC},
+      CARGOSUM = #{CARGOSUM,jdbcType=NUMERIC},
+      CHECKPERSON = #{CHECKPERSON,jdbcType=NUMERIC},
+      CHECKDATE = #{CHECKDATE,jdbcType=TIMESTAMP},
+      CHECKCOMPANY = #{CHECKCOMPANY,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

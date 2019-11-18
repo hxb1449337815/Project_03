@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorOutboundMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorOutbound">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="HANDOVERTYPE" jdbcType="NUMERIC" property="HANDOVERTYPE" />
+    <result column="LINE" jdbcType="VARCHAR" property="LINE" />
+    <result column="DIRECTION" jdbcType="NUMERIC" property="DIRECTION" />
+    <result column="ACCEPTPERSON" jdbcType="NUMERIC" property="ACCEPTPERSON" />
+    <result column="CARRIERS" jdbcType="NUMERIC" property="CARRIERS" />
+    <result column="DELIVERYPERSON" jdbcType="NUMERIC" property="DELIVERYPERSON" />
+    <result column="DELIVERYDATE" jdbcType="TIMESTAMP" property="DELIVERYDATE" />
+    <result column="DELIVERYCOMPANY" jdbcType="VARCHAR" property="DELIVERYCOMPANY" />
+    <result column="ENTERPERSON" jdbcType="NUMERIC" property="ENTERPERSON" />
+    <result column="ENTERDATE" jdbcType="TIMESTAMP" property="ENTERDATE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, HANDOVERTYPE, LINE, DIRECTION, ACCEPTPERSON, CARRIERS, DELIVERYPERSON, DELIVERYDATE, 
+    DELIVERYCOMPANY, ENTERPERSON, ENTERDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_OUTBOUND
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_OUTBOUND
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorOutbound">
+    insert into SOR_OUTBOUND (ID, HANDOVERTYPE, LINE, 
+      DIRECTION, ACCEPTPERSON, CARRIERS, 
+      DELIVERYPERSON, DELIVERYDATE, DELIVERYCOMPANY, 
+      ENTERPERSON, ENTERDATE)
+    values (#{ID,jdbcType=NUMERIC}, #{HANDOVERTYPE,jdbcType=NUMERIC}, #{LINE,jdbcType=VARCHAR}, 
+      #{DIRECTION,jdbcType=NUMERIC}, #{ACCEPTPERSON,jdbcType=NUMERIC}, #{CARRIERS,jdbcType=NUMERIC}, 
+      #{DELIVERYPERSON,jdbcType=NUMERIC}, #{DELIVERYDATE,jdbcType=TIMESTAMP}, #{DELIVERYCOMPANY,jdbcType=VARCHAR}, 
+      #{ENTERPERSON,jdbcType=NUMERIC}, #{ENTERDATE,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorOutbound">
+    insert into SOR_OUTBOUND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="HANDOVERTYPE != null">
+        HANDOVERTYPE,
+      </if>
+      <if test="LINE != null">
+        LINE,
+      </if>
+      <if test="DIRECTION != null">
+        DIRECTION,
+      </if>
+      <if test="ACCEPTPERSON != null">
+        ACCEPTPERSON,
+      </if>
+      <if test="CARRIERS != null">
+        CARRIERS,
+      </if>
+      <if test="DELIVERYPERSON != null">
+        DELIVERYPERSON,
+      </if>
+      <if test="DELIVERYDATE != null">
+        DELIVERYDATE,
+      </if>
+      <if test="DELIVERYCOMPANY != null">
+        DELIVERYCOMPANY,
+      </if>
+      <if test="ENTERPERSON != null">
+        ENTERPERSON,
+      </if>
+      <if test="ENTERDATE != null">
+        ENTERDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="HANDOVERTYPE != null">
+        #{HANDOVERTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="LINE != null">
+        #{LINE,jdbcType=VARCHAR},
+      </if>
+      <if test="DIRECTION != null">
+        #{DIRECTION,jdbcType=NUMERIC},
+      </if>
+      <if test="ACCEPTPERSON != null">
+        #{ACCEPTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="CARRIERS != null">
+        #{CARRIERS,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYPERSON != null">
+        #{DELIVERYPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYDATE != null">
+        #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="DELIVERYCOMPANY != null">
+        #{DELIVERYCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="ENTERPERSON != null">
+        #{ENTERPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="ENTERDATE != null">
+        #{ENTERDATE,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorOutbound">
+    update SOR_OUTBOUND
+    <set>
+      <if test="HANDOVERTYPE != null">
+        HANDOVERTYPE = #{HANDOVERTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="LINE != null">
+        LINE = #{LINE,jdbcType=VARCHAR},
+      </if>
+      <if test="DIRECTION != null">
+        DIRECTION = #{DIRECTION,jdbcType=NUMERIC},
+      </if>
+      <if test="ACCEPTPERSON != null">
+        ACCEPTPERSON = #{ACCEPTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="CARRIERS != null">
+        CARRIERS = #{CARRIERS,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYPERSON != null">
+        DELIVERYPERSON = #{DELIVERYPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYDATE != null">
+        DELIVERYDATE = #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="DELIVERYCOMPANY != null">
+        DELIVERYCOMPANY = #{DELIVERYCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="ENTERPERSON != null">
+        ENTERPERSON = #{ENTERPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="ENTERDATE != null">
+        ENTERDATE = #{ENTERDATE,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorOutbound">
+    update SOR_OUTBOUND
+    set HANDOVERTYPE = #{HANDOVERTYPE,jdbcType=NUMERIC},
+      LINE = #{LINE,jdbcType=VARCHAR},
+      DIRECTION = #{DIRECTION,jdbcType=NUMERIC},
+      ACCEPTPERSON = #{ACCEPTPERSON,jdbcType=NUMERIC},
+      CARRIERS = #{CARRIERS,jdbcType=NUMERIC},
+      DELIVERYPERSON = #{DELIVERYPERSON,jdbcType=NUMERIC},
+      DELIVERYDATE = #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      DELIVERYCOMPANY = #{DELIVERYCOMPANY,jdbcType=VARCHAR},
+      ENTERPERSON = #{ENTERPERSON,jdbcType=NUMERIC},
+      ENTERDATE = #{ENTERDATE,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

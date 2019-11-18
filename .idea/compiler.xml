@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="emp" />
+        <module name="test" />
+        <module name="dept" />
+        <module name="ssm_test" />
+        <module name="ssm_test_01" />
+        <module name="struts_01" />
+        <module name="oracle" />
+        <module name="test_02" />
+        <module name="bos" />
+        <module name="spa_02" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bos" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="dept" target="1.7" />
+      <module name="emp" target="1.7" />
+      <module name="oracle" target="1.8" />
+      <module name="spa_02" target="1.8" />
+      <module name="ssm_test" target="1.7" />
+      <module name="ssm_test_01" target="1.7" />
+      <module name="struts_01" target="1.7" />
+      <module name="test" target="1.7" />
+      <module name="test_02" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bos" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="oracle" options="-parameters" />
+      <module name="spa_02" options="-parameters" />
+    </option>
+  </component>
+</project>

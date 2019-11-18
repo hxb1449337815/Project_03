@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BasStandartimeMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BasStandartime">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="TIMENAME" jdbcType="VARCHAR" property="TIMENAME" />
+    <result column="SUBORDINATEUNIT" jdbcType="NUMERIC" property="SUBORDINATEUNIT" />
+    <result column="WORKINGTIME" jdbcType="TIMESTAMP" property="WORKINGTIME" />
+    <result column="CLOSINGTIME" jdbcType="TIMESTAMP" property="CLOSINGTIME" />
+    <result column="SATURDAYWORKINGTIME" jdbcType="TIMESTAMP" property="SATURDAYWORKINGTIME" />
+    <result column="SATURDAYCLOSINGTIME" jdbcType="TIMESTAMP" property="SATURDAYCLOSINGTIME" />
+    <result column="SUNDAYWORKINGTIME" jdbcType="TIMESTAMP" property="SUNDAYWORKINGTIME" />
+    <result column="SUNDAYCLOSINGTIME" jdbcType="TIMESTAMP" property="SUNDAYCLOSINGTIME" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TIMENAME, SUBORDINATEUNIT, WORKINGTIME, CLOSINGTIME, SATURDAYWORKINGTIME, SATURDAYCLOSINGTIME, 
+    SUNDAYWORKINGTIME, SUNDAYCLOSINGTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_STANDARTIME
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BAS_STANDARTIME
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BasStandartime">
+    insert into BAS_STANDARTIME (ID, TIMENAME, SUBORDINATEUNIT, 
+      WORKINGTIME, CLOSINGTIME, SATURDAYWORKINGTIME, 
+      SATURDAYCLOSINGTIME, SUNDAYWORKINGTIME, 
+      SUNDAYCLOSINGTIME)
+    values (#{ID,jdbcType=NUMERIC}, #{TIMENAME,jdbcType=VARCHAR}, #{SUBORDINATEUNIT,jdbcType=NUMERIC}, 
+      #{WORKINGTIME,jdbcType=TIMESTAMP}, #{CLOSINGTIME,jdbcType=TIMESTAMP}, #{SATURDAYWORKINGTIME,jdbcType=TIMESTAMP}, 
+      #{SATURDAYCLOSINGTIME,jdbcType=TIMESTAMP}, #{SUNDAYWORKINGTIME,jdbcType=TIMESTAMP}, 
+      #{SUNDAYCLOSINGTIME,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BasStandartime">
+    insert into BAS_STANDARTIME
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="TIMENAME != null">
+        TIMENAME,
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT,
+      </if>
+      <if test="WORKINGTIME != null">
+        WORKINGTIME,
+      </if>
+      <if test="CLOSINGTIME != null">
+        CLOSINGTIME,
+      </if>
+      <if test="SATURDAYWORKINGTIME != null">
+        SATURDAYWORKINGTIME,
+      </if>
+      <if test="SATURDAYCLOSINGTIME != null">
+        SATURDAYCLOSINGTIME,
+      </if>
+      <if test="SUNDAYWORKINGTIME != null">
+        SUNDAYWORKINGTIME,
+      </if>
+      <if test="SUNDAYCLOSINGTIME != null">
+        SUNDAYCLOSINGTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="TIMENAME != null">
+        #{TIMENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKINGTIME != null">
+        #{WORKINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CLOSINGTIME != null">
+        #{CLOSINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SATURDAYWORKINGTIME != null">
+        #{SATURDAYWORKINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SATURDAYCLOSINGTIME != null">
+        #{SATURDAYCLOSINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SUNDAYWORKINGTIME != null">
+        #{SUNDAYWORKINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SUNDAYCLOSINGTIME != null">
+        #{SUNDAYCLOSINGTIME,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BasStandartime">
+    update BAS_STANDARTIME
+    <set>
+      <if test="TIMENAME != null">
+        TIMENAME = #{TIMENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKINGTIME != null">
+        WORKINGTIME = #{WORKINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CLOSINGTIME != null">
+        CLOSINGTIME = #{CLOSINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SATURDAYWORKINGTIME != null">
+        SATURDAYWORKINGTIME = #{SATURDAYWORKINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SATURDAYCLOSINGTIME != null">
+        SATURDAYCLOSINGTIME = #{SATURDAYCLOSINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SUNDAYWORKINGTIME != null">
+        SUNDAYWORKINGTIME = #{SUNDAYWORKINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SUNDAYCLOSINGTIME != null">
+        SUNDAYCLOSINGTIME = #{SUNDAYCLOSINGTIME,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BasStandartime">
+    update BAS_STANDARTIME
+    set TIMENAME = #{TIMENAME,jdbcType=VARCHAR},
+      SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      WORKINGTIME = #{WORKINGTIME,jdbcType=TIMESTAMP},
+      CLOSINGTIME = #{CLOSINGTIME,jdbcType=TIMESTAMP},
+      SATURDAYWORKINGTIME = #{SATURDAYWORKINGTIME,jdbcType=TIMESTAMP},
+      SATURDAYCLOSINGTIME = #{SATURDAYCLOSINGTIME,jdbcType=TIMESTAMP},
+      SUNDAYWORKINGTIME = #{SUNDAYWORKINGTIME,jdbcType=TIMESTAMP},
+      SUNDAYCLOSINGTIME = #{SUNDAYCLOSINGTIME,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.RetReturnlistMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.RetReturnlist">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="APPLICATIONNO" jdbcType="VARCHAR" property="APPLICATIONNO" />
+    <result column="WORKSHEETNO" jdbcType="VARCHAR" property="WORKSHEETNO" />
+    <result column="RETURNTYPE" jdbcType="NUMERIC" property="RETURNTYPE" />
+    <result column="APREMARK" jdbcType="VARCHAR" property="APREMARK" />
+    <result column="APLOSS" jdbcType="NUMERIC" property="APLOSS" />
+    <result column="ENTRYTIME" jdbcType="TIMESTAMP" property="ENTRYTIME" />
+    <result column="RECEIVEGUNIT" jdbcType="NUMERIC" property="RECEIVEGUNIT" />
+    <result column="INVALIDATESIGN" jdbcType="NUMERIC" property="INVALIDATESIGN" />
+    <result column="RETURNUNIT" jdbcType="NUMERIC" property="RETURNUNIT" />
+    <result column="RECORDINGTIME" jdbcType="TIMESTAMP" property="RECORDINGTIME" />
+    <result column="ENTRYUNIT" jdbcType="NUMERIC" property="ENTRYUNIT" />
+    <result column="PERSONNAME" jdbcType="VARCHAR" property="PERSONNAME" />
+    <result column="CONFIRMATIONTIME" jdbcType="TIMESTAMP" property="CONFIRMATIONTIME" />
+    <result column="CONFIRMATIONUNIT" jdbcType="NUMERIC" property="CONFIRMATIONUNIT" />
+    <result column="CONFIRMATIONPERSONNAME" jdbcType="VARCHAR" property="CONFIRMATIONPERSONNAME" />
+    <result column="TREATMENTSTATE" jdbcType="NUMERIC" property="TREATMENTSTATE" />
+    <result column="APRETURNSTATUS" jdbcType="NUMERIC" property="APRETURNSTATUS" />
+    <result column="IDENTIFICATIONSIGN" jdbcType="NUMERIC" property="IDENTIFICATIONSIGN" />
+    <result column="HANDLINGOPINIONS" jdbcType="VARCHAR" property="HANDLINGOPINIONS" />
+    <result column="DENIALTYPE" jdbcType="VARCHAR" property="DENIALTYPE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, APPLICATIONNO, WORKSHEETNO, RETURNTYPE, APREMARK, APLOSS, ENTRYTIME, RECEIVEGUNIT, 
+    INVALIDATESIGN, RETURNUNIT, RECORDINGTIME, ENTRYUNIT, PERSONNAME, CONFIRMATIONTIME, 
+    CONFIRMATIONUNIT, CONFIRMATIONPERSONNAME, TREATMENTSTATE, APRETURNSTATUS, IDENTIFICATIONSIGN, 
+    HANDLINGOPINIONS, DENIALTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RET_RETURNLIST
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from RET_RETURNLIST
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.RetReturnlist">
+    insert into RET_RETURNLIST (ID, APPLICATIONNO, WORKSHEETNO, 
+      RETURNTYPE, APREMARK, APLOSS, 
+      ENTRYTIME, RECEIVEGUNIT, INVALIDATESIGN, 
+      RETURNUNIT, RECORDINGTIME, ENTRYUNIT, 
+      PERSONNAME, CONFIRMATIONTIME, CONFIRMATIONUNIT, 
+      CONFIRMATIONPERSONNAME, TREATMENTSTATE, 
+      APRETURNSTATUS, IDENTIFICATIONSIGN, HANDLINGOPINIONS, 
+      DENIALTYPE)
+    values (#{ID,jdbcType=NUMERIC}, #{APPLICATIONNO,jdbcType=VARCHAR}, #{WORKSHEETNO,jdbcType=VARCHAR}, 
+      #{RETURNTYPE,jdbcType=NUMERIC}, #{APREMARK,jdbcType=VARCHAR}, #{APLOSS,jdbcType=NUMERIC}, 
+      #{ENTRYTIME,jdbcType=TIMESTAMP}, #{RECEIVEGUNIT,jdbcType=NUMERIC}, #{INVALIDATESIGN,jdbcType=NUMERIC}, 
+      #{RETURNUNIT,jdbcType=NUMERIC}, #{RECORDINGTIME,jdbcType=TIMESTAMP}, #{ENTRYUNIT,jdbcType=NUMERIC}, 
+      #{PERSONNAME,jdbcType=VARCHAR}, #{CONFIRMATIONTIME,jdbcType=TIMESTAMP}, #{CONFIRMATIONUNIT,jdbcType=NUMERIC}, 
+      #{CONFIRMATIONPERSONNAME,jdbcType=VARCHAR}, #{TREATMENTSTATE,jdbcType=NUMERIC}, 
+      #{APRETURNSTATUS,jdbcType=NUMERIC}, #{IDENTIFICATIONSIGN,jdbcType=NUMERIC}, #{HANDLINGOPINIONS,jdbcType=VARCHAR}, 
+      #{DENIALTYPE,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.RetReturnlist">
+    insert into RET_RETURNLIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="APPLICATIONNO != null">
+        APPLICATIONNO,
+      </if>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO,
+      </if>
+      <if test="RETURNTYPE != null">
+        RETURNTYPE,
+      </if>
+      <if test="APREMARK != null">
+        APREMARK,
+      </if>
+      <if test="APLOSS != null">
+        APLOSS,
+      </if>
+      <if test="ENTRYTIME != null">
+        ENTRYTIME,
+      </if>
+      <if test="RECEIVEGUNIT != null">
+        RECEIVEGUNIT,
+      </if>
+      <if test="INVALIDATESIGN != null">
+        INVALIDATESIGN,
+      </if>
+      <if test="RETURNUNIT != null">
+        RETURNUNIT,
+      </if>
+      <if test="RECORDINGTIME != null">
+        RECORDINGTIME,
+      </if>
+      <if test="ENTRYUNIT != null">
+        ENTRYUNIT,
+      </if>
+      <if test="PERSONNAME != null">
+        PERSONNAME,
+      </if>
+      <if test="CONFIRMATIONTIME != null">
+        CONFIRMATIONTIME,
+      </if>
+      <if test="CONFIRMATIONUNIT != null">
+        CONFIRMATIONUNIT,
+      </if>
+      <if test="CONFIRMATIONPERSONNAME != null">
+        CONFIRMATIONPERSONNAME,
+      </if>
+      <if test="TREATMENTSTATE != null">
+        TREATMENTSTATE,
+      </if>
+      <if test="APRETURNSTATUS != null">
+        APRETURNSTATUS,
+      </if>
+      <if test="IDENTIFICATIONSIGN != null">
+        IDENTIFICATIONSIGN,
+      </if>
+      <if test="HANDLINGOPINIONS != null">
+        HANDLINGOPINIONS,
+      </if>
+      <if test="DENIALTYPE != null">
+        DENIALTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="APPLICATIONNO != null">
+        #{APPLICATIONNO,jdbcType=VARCHAR},
+      </if>
+      <if test="WORKSHEETNO != null">
+        #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="RETURNTYPE != null">
+        #{RETURNTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="APREMARK != null">
+        #{APREMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="APLOSS != null">
+        #{APLOSS,jdbcType=NUMERIC},
+      </if>
+      <if test="ENTRYTIME != null">
+        #{ENTRYTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="RECEIVEGUNIT != null">
+        #{RECEIVEGUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="INVALIDATESIGN != null">
+        #{INVALIDATESIGN,jdbcType=NUMERIC},
+      </if>
+      <if test="RETURNUNIT != null">
+        #{RETURNUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="RECORDINGTIME != null">
+        #{RECORDINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ENTRYUNIT != null">
+        #{ENTRYUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="PERSONNAME != null">
+        #{PERSONNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CONFIRMATIONTIME != null">
+        #{CONFIRMATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CONFIRMATIONUNIT != null">
+        #{CONFIRMATIONUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="CONFIRMATIONPERSONNAME != null">
+        #{CONFIRMATIONPERSONNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="TREATMENTSTATE != null">
+        #{TREATMENTSTATE,jdbcType=NUMERIC},
+      </if>
+      <if test="APRETURNSTATUS != null">
+        #{APRETURNSTATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="IDENTIFICATIONSIGN != null">
+        #{IDENTIFICATIONSIGN,jdbcType=NUMERIC},
+      </if>
+      <if test="HANDLINGOPINIONS != null">
+        #{HANDLINGOPINIONS,jdbcType=VARCHAR},
+      </if>
+      <if test="DENIALTYPE != null">
+        #{DENIALTYPE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.RetReturnlist">
+    update RET_RETURNLIST
+    <set>
+      <if test="APPLICATIONNO != null">
+        APPLICATIONNO = #{APPLICATIONNO,jdbcType=VARCHAR},
+      </if>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO = #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="RETURNTYPE != null">
+        RETURNTYPE = #{RETURNTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="APREMARK != null">
+        APREMARK = #{APREMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="APLOSS != null">
+        APLOSS = #{APLOSS,jdbcType=NUMERIC},
+      </if>
+      <if test="ENTRYTIME != null">
+        ENTRYTIME = #{ENTRYTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="RECEIVEGUNIT != null">
+        RECEIVEGUNIT = #{RECEIVEGUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="INVALIDATESIGN != null">
+        INVALIDATESIGN = #{INVALIDATESIGN,jdbcType=NUMERIC},
+      </if>
+      <if test="RETURNUNIT != null">
+        RETURNUNIT = #{RETURNUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="RECORDINGTIME != null">
+        RECORDINGTIME = #{RECORDINGTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ENTRYUNIT != null">
+        ENTRYUNIT = #{ENTRYUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="PERSONNAME != null">
+        PERSONNAME = #{PERSONNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CONFIRMATIONTIME != null">
+        CONFIRMATIONTIME = #{CONFIRMATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CONFIRMATIONUNIT != null">
+        CONFIRMATIONUNIT = #{CONFIRMATIONUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="CONFIRMATIONPERSONNAME != null">
+        CONFIRMATIONPERSONNAME = #{CONFIRMATIONPERSONNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="TREATMENTSTATE != null">
+        TREATMENTSTATE = #{TREATMENTSTATE,jdbcType=NUMERIC},
+      </if>
+      <if test="APRETURNSTATUS != null">
+        APRETURNSTATUS = #{APRETURNSTATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="IDENTIFICATIONSIGN != null">
+        IDENTIFICATIONSIGN = #{IDENTIFICATIONSIGN,jdbcType=NUMERIC},
+      </if>
+      <if test="HANDLINGOPINIONS != null">
+        HANDLINGOPINIONS = #{HANDLINGOPINIONS,jdbcType=VARCHAR},
+      </if>
+      <if test="DENIALTYPE != null">
+        DENIALTYPE = #{DENIALTYPE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.RetReturnlist">
+    update RET_RETURNLIST
+    set APPLICATIONNO = #{APPLICATIONNO,jdbcType=VARCHAR},
+      WORKSHEETNO = #{WORKSHEETNO,jdbcType=VARCHAR},
+      RETURNTYPE = #{RETURNTYPE,jdbcType=NUMERIC},
+      APREMARK = #{APREMARK,jdbcType=VARCHAR},
+      APLOSS = #{APLOSS,jdbcType=NUMERIC},
+      ENTRYTIME = #{ENTRYTIME,jdbcType=TIMESTAMP},
+      RECEIVEGUNIT = #{RECEIVEGUNIT,jdbcType=NUMERIC},
+      INVALIDATESIGN = #{INVALIDATESIGN,jdbcType=NUMERIC},
+      RETURNUNIT = #{RETURNUNIT,jdbcType=NUMERIC},
+      RECORDINGTIME = #{RECORDINGTIME,jdbcType=TIMESTAMP},
+      ENTRYUNIT = #{ENTRYUNIT,jdbcType=NUMERIC},
+      PERSONNAME = #{PERSONNAME,jdbcType=VARCHAR},
+      CONFIRMATIONTIME = #{CONFIRMATIONTIME,jdbcType=TIMESTAMP},
+      CONFIRMATIONUNIT = #{CONFIRMATIONUNIT,jdbcType=NUMERIC},
+      CONFIRMATIONPERSONNAME = #{CONFIRMATIONPERSONNAME,jdbcType=VARCHAR},
+      TREATMENTSTATE = #{TREATMENTSTATE,jdbcType=NUMERIC},
+      APRETURNSTATUS = #{APRETURNSTATUS,jdbcType=NUMERIC},
+      IDENTIFICATIONSIGN = #{IDENTIFICATIONSIGN,jdbcType=NUMERIC},
+      HANDLINGOPINIONS = #{HANDLINGOPINIONS,jdbcType=VARCHAR},
+      DENIALTYPE = #{DENIALTYPE,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BasAssociatememberMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BasAssociatemember">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="ZONECODE" jdbcType="VARCHAR" property="ZONECODE" />
+    <result column="EMPNO" jdbcType="VARCHAR" property="EMPNO" />
+    <result column="EMPNAME" jdbcType="VARCHAR" property="EMPNAME" />
+    <result column="STANDARDKG" jdbcType="NUMERIC" property="STANDARDKG" />
+    <result column="STANDARDLENGTH" jdbcType="NUMERIC" property="STANDARDLENGTH" />
+    <result column="STANDARDTIME" jdbcType="TIMESTAMP" property="STANDARDTIME" />
+    <result column="SUBORDINATEUNIT" jdbcType="NUMERIC" property="SUBORDINATEUNIT" />
+    <result column="TYPE" jdbcType="VARCHAR" property="TYPE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ZONECODE, EMPNO, EMPNAME, STANDARDKG, STANDARDLENGTH, STANDARDTIME, SUBORDINATEUNIT, 
+    TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_ASSOCIATEMEMBER
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BAS_ASSOCIATEMEMBER
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BasAssociatemember">
+    insert into BAS_ASSOCIATEMEMBER (ID, ZONECODE, EMPNO, 
+      EMPNAME, STANDARDKG, STANDARDLENGTH, 
+      STANDARDTIME, SUBORDINATEUNIT, TYPE
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{ZONECODE,jdbcType=VARCHAR}, #{EMPNO,jdbcType=VARCHAR}, 
+      #{EMPNAME,jdbcType=VARCHAR}, #{STANDARDKG,jdbcType=NUMERIC}, #{STANDARDLENGTH,jdbcType=NUMERIC}, 
+      #{STANDARDTIME,jdbcType=TIMESTAMP}, #{SUBORDINATEUNIT,jdbcType=NUMERIC}, #{TYPE,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BasAssociatemember">
+    insert into BAS_ASSOCIATEMEMBER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ZONECODE != null">
+        ZONECODE,
+      </if>
+      <if test="EMPNO != null">
+        EMPNO,
+      </if>
+      <if test="EMPNAME != null">
+        EMPNAME,
+      </if>
+      <if test="STANDARDKG != null">
+        STANDARDKG,
+      </if>
+      <if test="STANDARDLENGTH != null">
+        STANDARDLENGTH,
+      </if>
+      <if test="STANDARDTIME != null">
+        STANDARDTIME,
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT,
+      </if>
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="ZONECODE != null">
+        #{ZONECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNO != null">
+        #{EMPNO,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNAME != null">
+        #{EMPNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STANDARDKG != null">
+        #{STANDARDKG,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDLENGTH != null">
+        #{STANDARDLENGTH,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDTIME != null">
+        #{STANDARDTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BasAssociatemember">
+    update BAS_ASSOCIATEMEMBER
+    <set>
+      <if test="ZONECODE != null">
+        ZONECODE = #{ZONECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNO != null">
+        EMPNO = #{EMPNO,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNAME != null">
+        EMPNAME = #{EMPNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STANDARDKG != null">
+        STANDARDKG = #{STANDARDKG,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDLENGTH != null">
+        STANDARDLENGTH = #{STANDARDLENGTH,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDTIME != null">
+        STANDARDTIME = #{STANDARDTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="TYPE != null">
+        TYPE = #{TYPE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BasAssociatemember">
+    update BAS_ASSOCIATEMEMBER
+    set ZONECODE = #{ZONECODE,jdbcType=VARCHAR},
+      EMPNO = #{EMPNO,jdbcType=VARCHAR},
+      EMPNAME = #{EMPNAME,jdbcType=VARCHAR},
+      STANDARDKG = #{STANDARDKG,jdbcType=NUMERIC},
+      STANDARDLENGTH = #{STANDARDLENGTH,jdbcType=NUMERIC},
+      STANDARDTIME = #{STANDARDTIME,jdbcType=TIMESTAMP},
+      SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      TYPE = #{TYPE,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

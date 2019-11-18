@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorCheckbounddetailsMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorCheckbounddetails">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="PACKAGEID" jdbcType="VARCHAR" property="PACKAGEID" />
+    <result column="CARGOCOUNT" jdbcType="NUMERIC" property="CARGOCOUNT" />
+    <result column="WEIGHT" jdbcType="NUMERIC" property="WEIGHT" />
+    <result column="VOLUME" jdbcType="NUMERIC" property="VOLUME" />
+    <result column="CARGOTYPE" jdbcType="NUMERIC" property="CARGOTYPE" />
+    <result column="DIRECTION" jdbcType="VARCHAR" property="DIRECTION" />
+    <result column="STORAGEPERSON" jdbcType="NUMERIC" property="STORAGEPERSON" />
+    <result column="STORAGEDATE" jdbcType="TIMESTAMP" property="STORAGEDATE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PACKAGEID, CARGOCOUNT, WEIGHT, VOLUME, CARGOTYPE, DIRECTION, STORAGEPERSON, STORAGEDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_CHECKBOUNDDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_CHECKBOUNDDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorCheckbounddetails">
+    insert into SOR_CHECKBOUNDDETAILS (ID, PACKAGEID, CARGOCOUNT, 
+      WEIGHT, VOLUME, CARGOTYPE, 
+      DIRECTION, STORAGEPERSON, STORAGEDATE
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{PACKAGEID,jdbcType=VARCHAR}, #{CARGOCOUNT,jdbcType=NUMERIC}, 
+      #{WEIGHT,jdbcType=NUMERIC}, #{VOLUME,jdbcType=NUMERIC}, #{CARGOTYPE,jdbcType=NUMERIC}, 
+      #{DIRECTION,jdbcType=VARCHAR}, #{STORAGEPERSON,jdbcType=NUMERIC}, #{STORAGEDATE,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorCheckbounddetails">
+    insert into SOR_CHECKBOUNDDETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="PACKAGEID != null">
+        PACKAGEID,
+      </if>
+      <if test="CARGOCOUNT != null">
+        CARGOCOUNT,
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT,
+      </if>
+      <if test="VOLUME != null">
+        VOLUME,
+      </if>
+      <if test="CARGOTYPE != null">
+        CARGOTYPE,
+      </if>
+      <if test="DIRECTION != null">
+        DIRECTION,
+      </if>
+      <if test="STORAGEPERSON != null">
+        STORAGEPERSON,
+      </if>
+      <if test="STORAGEDATE != null">
+        STORAGEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="PACKAGEID != null">
+        #{PACKAGEID,jdbcType=VARCHAR},
+      </if>
+      <if test="CARGOCOUNT != null">
+        #{CARGOCOUNT,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOTYPE != null">
+        #{CARGOTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="DIRECTION != null">
+        #{DIRECTION,jdbcType=VARCHAR},
+      </if>
+      <if test="STORAGEPERSON != null">
+        #{STORAGEPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="STORAGEDATE != null">
+        #{STORAGEDATE,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorCheckbounddetails">
+    update SOR_CHECKBOUNDDETAILS
+    <set>
+      <if test="PACKAGEID != null">
+        PACKAGEID = #{PACKAGEID,jdbcType=VARCHAR},
+      </if>
+      <if test="CARGOCOUNT != null">
+        CARGOCOUNT = #{CARGOCOUNT,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOTYPE != null">
+        CARGOTYPE = #{CARGOTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="DIRECTION != null">
+        DIRECTION = #{DIRECTION,jdbcType=VARCHAR},
+      </if>
+      <if test="STORAGEPERSON != null">
+        STORAGEPERSON = #{STORAGEPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="STORAGEDATE != null">
+        STORAGEDATE = #{STORAGEDATE,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorCheckbounddetails">
+    update SOR_CHECKBOUNDDETAILS
+    set PACKAGEID = #{PACKAGEID,jdbcType=VARCHAR},
+      CARGOCOUNT = #{CARGOCOUNT,jdbcType=NUMERIC},
+      WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      CARGOTYPE = #{CARGOTYPE,jdbcType=NUMERIC},
+      DIRECTION = #{DIRECTION,jdbcType=VARCHAR},
+      STORAGEPERSON = #{STORAGEPERSON,jdbcType=NUMERIC},
+      STORAGEDATE = #{STORAGEDATE,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

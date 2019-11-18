@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.DisDispatchhistoryMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.DisDispatchhistory">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="DISPATCHSEQUENCE" jdbcType="NUMERIC" property="DISPATCHSEQUENCE" />
+    <result column="TRANSFERREDUNIT" jdbcType="NUMERIC" property="TRANSFERREDUNIT" />
+    <result column="OPERATORID" jdbcType="NUMERIC" property="OPERATORID" />
+    <result column="OPERATIONUNITID" jdbcType="NUMERIC" property="OPERATIONUNITID" />
+    <result column="OPERATIONTIME" jdbcType="TIMESTAMP" property="OPERATIONTIME" />
+    <result column="REMARK" jdbcType="VARCHAR" property="REMARK" />
+    <result column="STATUS" jdbcType="NUMERIC" property="STATUS" />
+    <result column="REASON" jdbcType="VARCHAR" property="REASON" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, DISPATCHSEQUENCE, TRANSFERREDUNIT, OPERATORID, OPERATIONUNITID, OPERATIONTIME, 
+    REMARK, STATUS, REASON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DIS_DISPATCHHISTORY
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from DIS_DISPATCHHISTORY
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.DisDispatchhistory">
+    insert into DIS_DISPATCHHISTORY (ID, DISPATCHSEQUENCE, TRANSFERREDUNIT, 
+      OPERATORID, OPERATIONUNITID, OPERATIONTIME, 
+      REMARK, STATUS, REASON
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{DISPATCHSEQUENCE,jdbcType=NUMERIC}, #{TRANSFERREDUNIT,jdbcType=NUMERIC}, 
+      #{OPERATORID,jdbcType=NUMERIC}, #{OPERATIONUNITID,jdbcType=NUMERIC}, #{OPERATIONTIME,jdbcType=TIMESTAMP}, 
+      #{REMARK,jdbcType=VARCHAR}, #{STATUS,jdbcType=NUMERIC}, #{REASON,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.DisDispatchhistory">
+    insert into DIS_DISPATCHHISTORY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="DISPATCHSEQUENCE != null">
+        DISPATCHSEQUENCE,
+      </if>
+      <if test="TRANSFERREDUNIT != null">
+        TRANSFERREDUNIT,
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID,
+      </if>
+      <if test="OPERATIONUNITID != null">
+        OPERATIONUNITID,
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME,
+      </if>
+      <if test="REMARK != null">
+        REMARK,
+      </if>
+      <if test="STATUS != null">
+        STATUS,
+      </if>
+      <if test="REASON != null">
+        REASON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="DISPATCHSEQUENCE != null">
+        #{DISPATCHSEQUENCE,jdbcType=NUMERIC},
+      </if>
+      <if test="TRANSFERREDUNIT != null">
+        #{TRANSFERREDUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATORID != null">
+        #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONUNITID != null">
+        #{OPERATIONUNITID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK != null">
+        #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="STATUS != null">
+        #{STATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="REASON != null">
+        #{REASON,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.DisDispatchhistory">
+    update DIS_DISPATCHHISTORY
+    <set>
+      <if test="DISPATCHSEQUENCE != null">
+        DISPATCHSEQUENCE = #{DISPATCHSEQUENCE,jdbcType=NUMERIC},
+      </if>
+      <if test="TRANSFERREDUNIT != null">
+        TRANSFERREDUNIT = #{TRANSFERREDUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONUNITID != null">
+        OPERATIONUNITID = #{OPERATIONUNITID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK != null">
+        REMARK = #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="STATUS != null">
+        STATUS = #{STATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="REASON != null">
+        REASON = #{REASON,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.DisDispatchhistory">
+    update DIS_DISPATCHHISTORY
+    set DISPATCHSEQUENCE = #{DISPATCHSEQUENCE,jdbcType=NUMERIC},
+      TRANSFERREDUNIT = #{TRANSFERREDUNIT,jdbcType=NUMERIC},
+      OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      OPERATIONUNITID = #{OPERATIONUNITID,jdbcType=NUMERIC},
+      OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      REMARK = #{REMARK,jdbcType=VARCHAR},
+      STATUS = #{STATUS,jdbcType=NUMERIC},
+      REASON = #{REASON,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorPackageMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorPackage">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="PACKAGEPERSON" jdbcType="NUMERIC" property="PACKAGEPERSON" />
+    <result column="SEALINT" jdbcType="VARCHAR" property="SEALINT" />
+    <result column="DESTINATION" jdbcType="VARCHAR" property="DESTINATION" />
+    <result column="RECKONDES" jdbcType="VARCHAR" property="RECKONDES" />
+    <result column="TIMELIMIT" jdbcType="TIMESTAMP" property="TIMELIMIT" />
+    <result column="TICKETSUM" jdbcType="NUMERIC" property="TICKETSUM" />
+    <result column="CARGOSUM" jdbcType="NUMERIC" property="CARGOSUM" />
+    <result column="WEIGHTSUM" jdbcType="NUMERIC" property="WEIGHTSUM" />
+    <result column="VOLUMESUM" jdbcType="NUMERIC" property="VOLUMESUM" />
+    <result column="STATE" jdbcType="NUMERIC" property="STATE" />
+    <result column="ASK" jdbcType="NUMERIC" property="ASK" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PACKAGEPERSON, SEALINT, DESTINATION, RECKONDES, TIMELIMIT, TICKETSUM, CARGOSUM, 
+    WEIGHTSUM, VOLUMESUM, STATE, ASK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_PACKAGE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_PACKAGE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorPackage">
+    insert into SOR_PACKAGE (ID, PACKAGEPERSON, SEALINT, 
+      DESTINATION, RECKONDES, TIMELIMIT, 
+      TICKETSUM, CARGOSUM, WEIGHTSUM, 
+      VOLUMESUM, STATE, ASK
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{PACKAGEPERSON,jdbcType=NUMERIC}, #{SEALINT,jdbcType=VARCHAR}, 
+      #{DESTINATION,jdbcType=VARCHAR}, #{RECKONDES,jdbcType=VARCHAR}, #{TIMELIMIT,jdbcType=TIMESTAMP}, 
+      #{TICKETSUM,jdbcType=NUMERIC}, #{CARGOSUM,jdbcType=NUMERIC}, #{WEIGHTSUM,jdbcType=NUMERIC}, 
+      #{VOLUMESUM,jdbcType=NUMERIC}, #{STATE,jdbcType=NUMERIC}, #{ASK,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorPackage">
+    insert into SOR_PACKAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="PACKAGEPERSON != null">
+        PACKAGEPERSON,
+      </if>
+      <if test="SEALINT != null">
+        SEALINT,
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION,
+      </if>
+      <if test="RECKONDES != null">
+        RECKONDES,
+      </if>
+      <if test="TIMELIMIT != null">
+        TIMELIMIT,
+      </if>
+      <if test="TICKETSUM != null">
+        TICKETSUM,
+      </if>
+      <if test="CARGOSUM != null">
+        CARGOSUM,
+      </if>
+      <if test="WEIGHTSUM != null">
+        WEIGHTSUM,
+      </if>
+      <if test="VOLUMESUM != null">
+        VOLUMESUM,
+      </if>
+      <if test="STATE != null">
+        STATE,
+      </if>
+      <if test="ASK != null">
+        ASK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="PACKAGEPERSON != null">
+        #{PACKAGEPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="SEALINT != null">
+        #{SEALINT,jdbcType=VARCHAR},
+      </if>
+      <if test="DESTINATION != null">
+        #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="RECKONDES != null">
+        #{RECKONDES,jdbcType=VARCHAR},
+      </if>
+      <if test="TIMELIMIT != null">
+        #{TIMELIMIT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="TICKETSUM != null">
+        #{TICKETSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOSUM != null">
+        #{CARGOSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHTSUM != null">
+        #{WEIGHTSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUMESUM != null">
+        #{VOLUMESUM,jdbcType=NUMERIC},
+      </if>
+      <if test="STATE != null">
+        #{STATE,jdbcType=NUMERIC},
+      </if>
+      <if test="ASK != null">
+        #{ASK,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorPackage">
+    update SOR_PACKAGE
+    <set>
+      <if test="PACKAGEPERSON != null">
+        PACKAGEPERSON = #{PACKAGEPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="SEALINT != null">
+        SEALINT = #{SEALINT,jdbcType=VARCHAR},
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="RECKONDES != null">
+        RECKONDES = #{RECKONDES,jdbcType=VARCHAR},
+      </if>
+      <if test="TIMELIMIT != null">
+        TIMELIMIT = #{TIMELIMIT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="TICKETSUM != null">
+        TICKETSUM = #{TICKETSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOSUM != null">
+        CARGOSUM = #{CARGOSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHTSUM != null">
+        WEIGHTSUM = #{WEIGHTSUM,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUMESUM != null">
+        VOLUMESUM = #{VOLUMESUM,jdbcType=NUMERIC},
+      </if>
+      <if test="STATE != null">
+        STATE = #{STATE,jdbcType=NUMERIC},
+      </if>
+      <if test="ASK != null">
+        ASK = #{ASK,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorPackage">
+    update SOR_PACKAGE
+    set PACKAGEPERSON = #{PACKAGEPERSON,jdbcType=NUMERIC},
+      SEALINT = #{SEALINT,jdbcType=VARCHAR},
+      DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      RECKONDES = #{RECKONDES,jdbcType=VARCHAR},
+      TIMELIMIT = #{TIMELIMIT,jdbcType=TIMESTAMP},
+      TICKETSUM = #{TICKETSUM,jdbcType=NUMERIC},
+      CARGOSUM = #{CARGOSUM,jdbcType=NUMERIC},
+      WEIGHTSUM = #{WEIGHTSUM,jdbcType=NUMERIC},
+      VOLUMESUM = #{VOLUMESUM,jdbcType=NUMERIC},
+      STATE = #{STATE,jdbcType=NUMERIC},
+      ASK = #{ASK,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

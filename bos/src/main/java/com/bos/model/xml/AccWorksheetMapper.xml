@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.AccWorksheetMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.AccWorksheet">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="WORKSHEETNO" jdbcType="VARCHAR" property="WORKSHEETNO" />
+    <result column="DESTINATION" jdbcType="VARCHAR" property="DESTINATION" />
+    <result column="PRODUCTTIME" jdbcType="VARCHAR" property="PRODUCTTIME" />
+    <result column="TOTAL" jdbcType="NUMERIC" property="TOTAL" />
+    <result column="WEIGHT" jdbcType="NUMERIC" property="WEIGHT" />
+    <result column="STOWAGEREQUIREMENTS" jdbcType="VARCHAR" property="STOWAGEREQUIREMENTS" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WORKSHEETNO, DESTINATION, PRODUCTTIME, TOTAL, WEIGHT, STOWAGEREQUIREMENTS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ACC_WORKSHEET
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from ACC_WORKSHEET
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.AccWorksheet">
+    insert into ACC_WORKSHEET (ID, WORKSHEETNO, DESTINATION, 
+      PRODUCTTIME, TOTAL, WEIGHT, 
+      STOWAGEREQUIREMENTS)
+    values (#{ID,jdbcType=NUMERIC}, #{WORKSHEETNO,jdbcType=VARCHAR}, #{DESTINATION,jdbcType=VARCHAR}, 
+      #{PRODUCTTIME,jdbcType=VARCHAR}, #{TOTAL,jdbcType=NUMERIC}, #{WEIGHT,jdbcType=NUMERIC}, 
+      #{STOWAGEREQUIREMENTS,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.AccWorksheet">
+    insert into ACC_WORKSHEET
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO,
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION,
+      </if>
+      <if test="PRODUCTTIME != null">
+        PRODUCTTIME,
+      </if>
+      <if test="TOTAL != null">
+        TOTAL,
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT,
+      </if>
+      <if test="STOWAGEREQUIREMENTS != null">
+        STOWAGEREQUIREMENTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKSHEETNO != null">
+        #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="DESTINATION != null">
+        #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="PRODUCTTIME != null">
+        #{PRODUCTTIME,jdbcType=VARCHAR},
+      </if>
+      <if test="TOTAL != null">
+        #{TOTAL,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="STOWAGEREQUIREMENTS != null">
+        #{STOWAGEREQUIREMENTS,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.AccWorksheet">
+    update ACC_WORKSHEET
+    <set>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO = #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="PRODUCTTIME != null">
+        PRODUCTTIME = #{PRODUCTTIME,jdbcType=VARCHAR},
+      </if>
+      <if test="TOTAL != null">
+        TOTAL = #{TOTAL,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="STOWAGEREQUIREMENTS != null">
+        STOWAGEREQUIREMENTS = #{STOWAGEREQUIREMENTS,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.AccWorksheet">
+    update ACC_WORKSHEET
+    set WORKSHEETNO = #{WORKSHEETNO,jdbcType=VARCHAR},
+      DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      PRODUCTTIME = #{PRODUCTTIME,jdbcType=VARCHAR},
+      TOTAL = #{TOTAL,jdbcType=NUMERIC},
+      WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      STOWAGEREQUIREMENTS = #{STOWAGEREQUIREMENTS,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

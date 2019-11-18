@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/dept" />
+    <file type="web" url="file://$PROJECT_DIR$/emp" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm_test" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm_test_01" />
+    <file type="web" url="file://$PROJECT_DIR$/struts_01" />
+    <file type="web" url="file://$PROJECT_DIR$/test" />
+    <file type="web" url="file://$PROJECT_DIR$/test_02" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+        <option value="$PROJECT_DIR$/spa_02/pom.xml" />
+        <option value="$PROJECT_DIR$/test_02/pom.xml" />
+        <option value="$PROJECT_DIR$/struts_01/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_test/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_test_01/pom.xml" />
+        <option value="$PROJECT_DIR$/emp/pom.xml" />
+        <option value="$PROJECT_DIR$/dept/pom.xml" />
+        <option value="$PROJECT_DIR$/oracle/pom.xml" />
+        <option value="$PROJECT_DIR$/bos/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

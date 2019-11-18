@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.PacPackagingMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.PacPackaging">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="ITEMCODE" jdbcType="VARCHAR" property="ITEMCODE" />
+    <result column="ITEMNAME" jdbcType="VARCHAR" property="ITEMNAME" />
+    <result column="PLANNEDPRICE" jdbcType="NUMERIC" property="PLANNEDPRICE" />
+    <result column="SPECIFICATIONS" jdbcType="VARCHAR" property="SPECIFICATIONS" />
+    <result column="TYPE" jdbcType="NUMERIC" property="TYPE" />
+    <result column="MEASUREMENTUNIT" jdbcType="VARCHAR" property="MEASUREMENTUNIT" />
+    <result column="STATUS" jdbcType="NUMERIC" property="STATUS" />
+    <result column="OPERATORID" jdbcType="NUMERIC" property="OPERATORID" />
+    <result column="OPERATIONTIME" jdbcType="TIMESTAMP" property="OPERATIONTIME" />
+    <result column="INVALIDATEJOBINT" jdbcType="TIMESTAMP" property="INVALIDATEJOBINT" />
+    <result column="INVALIDATENAME" jdbcType="NUMERIC" property="INVALIDATENAME" />
+    <result column="INVALIDATETIME" jdbcType="TIMESTAMP" property="INVALIDATETIME" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ITEMCODE, ITEMNAME, PLANNEDPRICE, SPECIFICATIONS, TYPE, MEASUREMENTUNIT, STATUS, 
+    OPERATORID, OPERATIONTIME, INVALIDATEJOBINT, INVALIDATENAME, INVALIDATETIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PAC_PACKAGING
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from PAC_PACKAGING
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.PacPackaging">
+    insert into PAC_PACKAGING (ID, ITEMCODE, ITEMNAME, 
+      PLANNEDPRICE, SPECIFICATIONS, TYPE, 
+      MEASUREMENTUNIT, STATUS, OPERATORID, 
+      OPERATIONTIME, INVALIDATEJOBINT, INVALIDATENAME, 
+      INVALIDATETIME)
+    values (#{ID,jdbcType=NUMERIC}, #{ITEMCODE,jdbcType=VARCHAR}, #{ITEMNAME,jdbcType=VARCHAR}, 
+      #{PLANNEDPRICE,jdbcType=NUMERIC}, #{SPECIFICATIONS,jdbcType=VARCHAR}, #{TYPE,jdbcType=NUMERIC}, 
+      #{MEASUREMENTUNIT,jdbcType=VARCHAR}, #{STATUS,jdbcType=NUMERIC}, #{OPERATORID,jdbcType=NUMERIC}, 
+      #{OPERATIONTIME,jdbcType=TIMESTAMP}, #{INVALIDATEJOBINT,jdbcType=TIMESTAMP}, #{INVALIDATENAME,jdbcType=NUMERIC}, 
+      #{INVALIDATETIME,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.PacPackaging">
+    insert into PAC_PACKAGING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ITEMCODE != null">
+        ITEMCODE,
+      </if>
+      <if test="ITEMNAME != null">
+        ITEMNAME,
+      </if>
+      <if test="PLANNEDPRICE != null">
+        PLANNEDPRICE,
+      </if>
+      <if test="SPECIFICATIONS != null">
+        SPECIFICATIONS,
+      </if>
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="MEASUREMENTUNIT != null">
+        MEASUREMENTUNIT,
+      </if>
+      <if test="STATUS != null">
+        STATUS,
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID,
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME,
+      </if>
+      <if test="INVALIDATEJOBINT != null">
+        INVALIDATEJOBINT,
+      </if>
+      <if test="INVALIDATENAME != null">
+        INVALIDATENAME,
+      </if>
+      <if test="INVALIDATETIME != null">
+        INVALIDATETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="ITEMCODE != null">
+        #{ITEMCODE,jdbcType=VARCHAR},
+      </if>
+      <if test="ITEMNAME != null">
+        #{ITEMNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="PLANNEDPRICE != null">
+        #{PLANNEDPRICE,jdbcType=NUMERIC},
+      </if>
+      <if test="SPECIFICATIONS != null">
+        #{SPECIFICATIONS,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="MEASUREMENTUNIT != null">
+        #{MEASUREMENTUNIT,jdbcType=VARCHAR},
+      </if>
+      <if test="STATUS != null">
+        #{STATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATORID != null">
+        #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INVALIDATEJOBINT != null">
+        #{INVALIDATEJOBINT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INVALIDATENAME != null">
+        #{INVALIDATENAME,jdbcType=NUMERIC},
+      </if>
+      <if test="INVALIDATETIME != null">
+        #{INVALIDATETIME,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.PacPackaging">
+    update PAC_PACKAGING
+    <set>
+      <if test="ITEMCODE != null">
+        ITEMCODE = #{ITEMCODE,jdbcType=VARCHAR},
+      </if>
+      <if test="ITEMNAME != null">
+        ITEMNAME = #{ITEMNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="PLANNEDPRICE != null">
+        PLANNEDPRICE = #{PLANNEDPRICE,jdbcType=NUMERIC},
+      </if>
+      <if test="SPECIFICATIONS != null">
+        SPECIFICATIONS = #{SPECIFICATIONS,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null">
+        TYPE = #{TYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="MEASUREMENTUNIT != null">
+        MEASUREMENTUNIT = #{MEASUREMENTUNIT,jdbcType=VARCHAR},
+      </if>
+      <if test="STATUS != null">
+        STATUS = #{STATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INVALIDATEJOBINT != null">
+        INVALIDATEJOBINT = #{INVALIDATEJOBINT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INVALIDATENAME != null">
+        INVALIDATENAME = #{INVALIDATENAME,jdbcType=NUMERIC},
+      </if>
+      <if test="INVALIDATETIME != null">
+        INVALIDATETIME = #{INVALIDATETIME,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.PacPackaging">
+    update PAC_PACKAGING
+    set ITEMCODE = #{ITEMCODE,jdbcType=VARCHAR},
+      ITEMNAME = #{ITEMNAME,jdbcType=VARCHAR},
+      PLANNEDPRICE = #{PLANNEDPRICE,jdbcType=NUMERIC},
+      SPECIFICATIONS = #{SPECIFICATIONS,jdbcType=VARCHAR},
+      TYPE = #{TYPE,jdbcType=NUMERIC},
+      MEASUREMENTUNIT = #{MEASUREMENTUNIT,jdbcType=VARCHAR},
+      STATUS = #{STATUS,jdbcType=NUMERIC},
+      OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      INVALIDATEJOBINT = #{INVALIDATEJOBINT,jdbcType=TIMESTAMP},
+      INVALIDATENAME = #{INVALIDATENAME,jdbcType=NUMERIC},
+      INVALIDATETIME = #{INVALIDATETIME,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

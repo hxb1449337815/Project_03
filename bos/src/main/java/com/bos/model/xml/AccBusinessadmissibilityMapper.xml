@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.AccBusinessadmissibilityMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.AccBusinessadmissibility">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="BUSINESSNOTICENO" jdbcType="VARCHAR" property="BUSINESSNOTICENO" />
+    <result column="RESERVATIONTIME" jdbcType="TIMESTAMP" property="RESERVATIONTIME" />
+    <result column="CUSTOMNAME" jdbcType="VARCHAR" property="CUSTOMNAME" />
+    <result column="PICKUPADDRESS" jdbcType="VARCHAR" property="PICKUPADDRESS" />
+    <result column="CUSTOMCODE" jdbcType="VARCHAR" property="CUSTOMCODE" />
+    <result column="LINKMAN" jdbcType="VARCHAR" property="LINKMAN" />
+    <result column="TELPHONE" jdbcType="VARCHAR" property="TELPHONE" />
+    <result column="WEIGHT" jdbcType="NUMERIC" property="WEIGHT" />
+    <result column="VOLUME" jdbcType="NUMERIC" property="VOLUME" />
+    <result column="IMPORTANTHINTS" jdbcType="VARCHAR" property="IMPORTANTHINTS" />
+    <result column="ARRIVECITY" jdbcType="VARCHAR" property="ARRIVECITY" />
+    <result column="PICKERINFO" jdbcType="NUMERIC" property="PICKERINFO" />
+    <result column="SENDADDRESS" jdbcType="VARCHAR" property="SENDADDRESS" />
+    <result column="PROCESSINGUNIT" jdbcType="NUMERIC" property="PROCESSINGUNIT" />
+    <result column="NOTIFICATIONSOURCE" jdbcType="NUMERIC" property="NOTIFICATIONSOURCE" />
+    <result column="CUSTOMNOMODIFYFLAG" jdbcType="NUMERIC" property="CUSTOMNOMODIFYFLAG" />
+    <result column="SINGLETYPE" jdbcType="VARCHAR" property="SINGLETYPE" />
+    <result column="PACKAGESNUM" jdbcType="NUMERIC" property="PACKAGESNUM" />
+    <result column="ACTUALWEIGHT" jdbcType="NUMERIC" property="ACTUALWEIGHT" />
+    <result column="BILLINGWEIGHT" jdbcType="NUMERIC" property="BILLINGWEIGHT" />
+    <result column="PACKINGFEE" jdbcType="NUMERIC" property="PACKINGFEE" />
+    <result column="ACTUALPACKING" jdbcType="NUMERIC" property="ACTUALPACKING" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, BUSINESSNOTICENO, RESERVATIONTIME, CUSTOMNAME, PICKUPADDRESS, CUSTOMCODE, LINKMAN, 
+    TELPHONE, WEIGHT, VOLUME, IMPORTANTHINTS, ARRIVECITY, PICKERINFO, SENDADDRESS, PROCESSINGUNIT, 
+    NOTIFICATIONSOURCE, CUSTOMNOMODIFYFLAG, SINGLETYPE, PACKAGESNUM, ACTUALWEIGHT, BILLINGWEIGHT, 
+    PACKINGFEE, ACTUALPACKING
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ACC_BUSINESSADMISSIBILITY
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from ACC_BUSINESSADMISSIBILITY
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.AccBusinessadmissibility">
+    insert into ACC_BUSINESSADMISSIBILITY (ID, BUSINESSNOTICENO, RESERVATIONTIME, 
+      CUSTOMNAME, PICKUPADDRESS, CUSTOMCODE, 
+      LINKMAN, TELPHONE, WEIGHT, 
+      VOLUME, IMPORTANTHINTS, ARRIVECITY, 
+      PICKERINFO, SENDADDRESS, PROCESSINGUNIT, 
+      NOTIFICATIONSOURCE, CUSTOMNOMODIFYFLAG, 
+      SINGLETYPE, PACKAGESNUM, ACTUALWEIGHT, 
+      BILLINGWEIGHT, PACKINGFEE, ACTUALPACKING
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{BUSINESSNOTICENO,jdbcType=VARCHAR}, #{RESERVATIONTIME,jdbcType=TIMESTAMP}, 
+      #{CUSTOMNAME,jdbcType=VARCHAR}, #{PICKUPADDRESS,jdbcType=VARCHAR}, #{CUSTOMCODE,jdbcType=VARCHAR}, 
+      #{LINKMAN,jdbcType=VARCHAR}, #{TELPHONE,jdbcType=VARCHAR}, #{WEIGHT,jdbcType=NUMERIC}, 
+      #{VOLUME,jdbcType=NUMERIC}, #{IMPORTANTHINTS,jdbcType=VARCHAR}, #{ARRIVECITY,jdbcType=VARCHAR}, 
+      #{PICKERINFO,jdbcType=NUMERIC}, #{SENDADDRESS,jdbcType=VARCHAR}, #{PROCESSINGUNIT,jdbcType=NUMERIC}, 
+      #{NOTIFICATIONSOURCE,jdbcType=NUMERIC}, #{CUSTOMNOMODIFYFLAG,jdbcType=NUMERIC}, 
+      #{SINGLETYPE,jdbcType=VARCHAR}, #{PACKAGESNUM,jdbcType=NUMERIC}, #{ACTUALWEIGHT,jdbcType=NUMERIC}, 
+      #{BILLINGWEIGHT,jdbcType=NUMERIC}, #{PACKINGFEE,jdbcType=NUMERIC}, #{ACTUALPACKING,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.AccBusinessadmissibility">
+    insert into ACC_BUSINESSADMISSIBILITY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="BUSINESSNOTICENO != null">
+        BUSINESSNOTICENO,
+      </if>
+      <if test="RESERVATIONTIME != null">
+        RESERVATIONTIME,
+      </if>
+      <if test="CUSTOMNAME != null">
+        CUSTOMNAME,
+      </if>
+      <if test="PICKUPADDRESS != null">
+        PICKUPADDRESS,
+      </if>
+      <if test="CUSTOMCODE != null">
+        CUSTOMCODE,
+      </if>
+      <if test="LINKMAN != null">
+        LINKMAN,
+      </if>
+      <if test="TELPHONE != null">
+        TELPHONE,
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT,
+      </if>
+      <if test="VOLUME != null">
+        VOLUME,
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS,
+      </if>
+      <if test="ARRIVECITY != null">
+        ARRIVECITY,
+      </if>
+      <if test="PICKERINFO != null">
+        PICKERINFO,
+      </if>
+      <if test="SENDADDRESS != null">
+        SENDADDRESS,
+      </if>
+      <if test="PROCESSINGUNIT != null">
+        PROCESSINGUNIT,
+      </if>
+      <if test="NOTIFICATIONSOURCE != null">
+        NOTIFICATIONSOURCE,
+      </if>
+      <if test="CUSTOMNOMODIFYFLAG != null">
+        CUSTOMNOMODIFYFLAG,
+      </if>
+      <if test="SINGLETYPE != null">
+        SINGLETYPE,
+      </if>
+      <if test="PACKAGESNUM != null">
+        PACKAGESNUM,
+      </if>
+      <if test="ACTUALWEIGHT != null">
+        ACTUALWEIGHT,
+      </if>
+      <if test="BILLINGWEIGHT != null">
+        BILLINGWEIGHT,
+      </if>
+      <if test="PACKINGFEE != null">
+        PACKINGFEE,
+      </if>
+      <if test="ACTUALPACKING != null">
+        ACTUALPACKING,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="BUSINESSNOTICENO != null">
+        #{BUSINESSNOTICENO,jdbcType=VARCHAR},
+      </if>
+      <if test="RESERVATIONTIME != null">
+        #{RESERVATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CUSTOMNAME != null">
+        #{CUSTOMNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="PICKUPADDRESS != null">
+        #{PICKUPADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMCODE != null">
+        #{CUSTOMCODE,jdbcType=VARCHAR},
+      </if>
+      <if test="LINKMAN != null">
+        #{LINKMAN,jdbcType=VARCHAR},
+      </if>
+      <if test="TELPHONE != null">
+        #{TELPHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="WEIGHT != null">
+        #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+      <if test="ARRIVECITY != null">
+        #{ARRIVECITY,jdbcType=VARCHAR},
+      </if>
+      <if test="PICKERINFO != null">
+        #{PICKERINFO,jdbcType=NUMERIC},
+      </if>
+      <if test="SENDADDRESS != null">
+        #{SENDADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="PROCESSINGUNIT != null">
+        #{PROCESSINGUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="NOTIFICATIONSOURCE != null">
+        #{NOTIFICATIONSOURCE,jdbcType=NUMERIC},
+      </if>
+      <if test="CUSTOMNOMODIFYFLAG != null">
+        #{CUSTOMNOMODIFYFLAG,jdbcType=NUMERIC},
+      </if>
+      <if test="SINGLETYPE != null">
+        #{SINGLETYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="PACKAGESNUM != null">
+        #{PACKAGESNUM,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALWEIGHT != null">
+        #{ACTUALWEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="BILLINGWEIGHT != null">
+        #{BILLINGWEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="PACKINGFEE != null">
+        #{PACKINGFEE,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALPACKING != null">
+        #{ACTUALPACKING,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.AccBusinessadmissibility">
+    update ACC_BUSINESSADMISSIBILITY
+    <set>
+      <if test="BUSINESSNOTICENO != null">
+        BUSINESSNOTICENO = #{BUSINESSNOTICENO,jdbcType=VARCHAR},
+      </if>
+      <if test="RESERVATIONTIME != null">
+        RESERVATIONTIME = #{RESERVATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CUSTOMNAME != null">
+        CUSTOMNAME = #{CUSTOMNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="PICKUPADDRESS != null">
+        PICKUPADDRESS = #{PICKUPADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="CUSTOMCODE != null">
+        CUSTOMCODE = #{CUSTOMCODE,jdbcType=VARCHAR},
+      </if>
+      <if test="LINKMAN != null">
+        LINKMAN = #{LINKMAN,jdbcType=VARCHAR},
+      </if>
+      <if test="TELPHONE != null">
+        TELPHONE = #{TELPHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+      <if test="ARRIVECITY != null">
+        ARRIVECITY = #{ARRIVECITY,jdbcType=VARCHAR},
+      </if>
+      <if test="PICKERINFO != null">
+        PICKERINFO = #{PICKERINFO,jdbcType=NUMERIC},
+      </if>
+      <if test="SENDADDRESS != null">
+        SENDADDRESS = #{SENDADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="PROCESSINGUNIT != null">
+        PROCESSINGUNIT = #{PROCESSINGUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="NOTIFICATIONSOURCE != null">
+        NOTIFICATIONSOURCE = #{NOTIFICATIONSOURCE,jdbcType=NUMERIC},
+      </if>
+      <if test="CUSTOMNOMODIFYFLAG != null">
+        CUSTOMNOMODIFYFLAG = #{CUSTOMNOMODIFYFLAG,jdbcType=NUMERIC},
+      </if>
+      <if test="SINGLETYPE != null">
+        SINGLETYPE = #{SINGLETYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="PACKAGESNUM != null">
+        PACKAGESNUM = #{PACKAGESNUM,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALWEIGHT != null">
+        ACTUALWEIGHT = #{ACTUALWEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="BILLINGWEIGHT != null">
+        BILLINGWEIGHT = #{BILLINGWEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="PACKINGFEE != null">
+        PACKINGFEE = #{PACKINGFEE,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALPACKING != null">
+        ACTUALPACKING = #{ACTUALPACKING,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.AccBusinessadmissibility">
+    update ACC_BUSINESSADMISSIBILITY
+    set BUSINESSNOTICENO = #{BUSINESSNOTICENO,jdbcType=VARCHAR},
+      RESERVATIONTIME = #{RESERVATIONTIME,jdbcType=TIMESTAMP},
+      CUSTOMNAME = #{CUSTOMNAME,jdbcType=VARCHAR},
+      PICKUPADDRESS = #{PICKUPADDRESS,jdbcType=VARCHAR},
+      CUSTOMCODE = #{CUSTOMCODE,jdbcType=VARCHAR},
+      LINKMAN = #{LINKMAN,jdbcType=VARCHAR},
+      TELPHONE = #{TELPHONE,jdbcType=VARCHAR},
+      WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      ARRIVECITY = #{ARRIVECITY,jdbcType=VARCHAR},
+      PICKERINFO = #{PICKERINFO,jdbcType=NUMERIC},
+      SENDADDRESS = #{SENDADDRESS,jdbcType=VARCHAR},
+      PROCESSINGUNIT = #{PROCESSINGUNIT,jdbcType=NUMERIC},
+      NOTIFICATIONSOURCE = #{NOTIFICATIONSOURCE,jdbcType=NUMERIC},
+      CUSTOMNOMODIFYFLAG = #{CUSTOMNOMODIFYFLAG,jdbcType=NUMERIC},
+      SINGLETYPE = #{SINGLETYPE,jdbcType=VARCHAR},
+      PACKAGESNUM = #{PACKAGESNUM,jdbcType=NUMERIC},
+      ACTUALWEIGHT = #{ACTUALWEIGHT,jdbcType=NUMERIC},
+      BILLINGWEIGHT = #{BILLINGWEIGHT,jdbcType=NUMERIC},
+      PACKINGFEE = #{PACKINGFEE,jdbcType=NUMERIC},
+      ACTUALPACKING = #{ACTUALPACKING,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

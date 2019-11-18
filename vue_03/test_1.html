@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div id="div">
+        <p><span>姓氏：</span><input v-model="firstName"/></p>
+        <p><span>姓名：</span><input v-model="lastName"/></p>
+        <p><span>全名：</span><input v-model="fullName"/></p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    var vm=new Vue({
+        el:"#div",
+        data:{
+            firstNmae:"吕",
+            lastName:"不悔",
+        },
+        computed:{
+
+        }
+    });
+
+</script>
+
+</html>

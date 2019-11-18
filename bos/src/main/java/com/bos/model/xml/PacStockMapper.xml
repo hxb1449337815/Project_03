@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.PacStockMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.PacStock">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="WAREHOUSENO" jdbcType="VARCHAR" property="WAREHOUSENO" />
+    <result column="RESERVOIRTYPE" jdbcType="NUMERIC" property="RESERVOIRTYPE" />
+    <result column="TRANSPORT" jdbcType="VARCHAR" property="TRANSPORT" />
+    <result column="SUBORDINATEUNIT" jdbcType="VARCHAR" property="SUBORDINATEUNIT" />
+    <result column="DRAWERNO" jdbcType="NUMERIC" property="DRAWERNO" />
+    <result column="DRAWERNAME" jdbcType="VARCHAR" property="DRAWERNAME" />
+    <result column="DRAWERTIME" jdbcType="TIMESTAMP" property="DRAWERTIME" />
+    <result column="REMARK" jdbcType="VARCHAR" property="REMARK" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WAREHOUSENO, RESERVOIRTYPE, TRANSPORT, SUBORDINATEUNIT, DRAWERNO, DRAWERNAME, 
+    DRAWERTIME, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PAC_STOCK
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from PAC_STOCK
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.PacStock">
+    insert into PAC_STOCK (ID, WAREHOUSENO, RESERVOIRTYPE, 
+      TRANSPORT, SUBORDINATEUNIT, DRAWERNO, 
+      DRAWERNAME, DRAWERTIME, REMARK
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{WAREHOUSENO,jdbcType=VARCHAR}, #{RESERVOIRTYPE,jdbcType=NUMERIC}, 
+      #{TRANSPORT,jdbcType=VARCHAR}, #{SUBORDINATEUNIT,jdbcType=VARCHAR}, #{DRAWERNO,jdbcType=NUMERIC}, 
+      #{DRAWERNAME,jdbcType=VARCHAR}, #{DRAWERTIME,jdbcType=TIMESTAMP}, #{REMARK,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.PacStock">
+    insert into PAC_STOCK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="WAREHOUSENO != null">
+        WAREHOUSENO,
+      </if>
+      <if test="RESERVOIRTYPE != null">
+        RESERVOIRTYPE,
+      </if>
+      <if test="TRANSPORT != null">
+        TRANSPORT,
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT,
+      </if>
+      <if test="DRAWERNO != null">
+        DRAWERNO,
+      </if>
+      <if test="DRAWERNAME != null">
+        DRAWERNAME,
+      </if>
+      <if test="DRAWERTIME != null">
+        DRAWERTIME,
+      </if>
+      <if test="REMARK != null">
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="WAREHOUSENO != null">
+        #{WAREHOUSENO,jdbcType=VARCHAR},
+      </if>
+      <if test="RESERVOIRTYPE != null">
+        #{RESERVOIRTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="TRANSPORT != null">
+        #{TRANSPORT,jdbcType=VARCHAR},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        #{SUBORDINATEUNIT,jdbcType=VARCHAR},
+      </if>
+      <if test="DRAWERNO != null">
+        #{DRAWERNO,jdbcType=NUMERIC},
+      </if>
+      <if test="DRAWERNAME != null">
+        #{DRAWERNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="DRAWERTIME != null">
+        #{DRAWERTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK != null">
+        #{REMARK,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.PacStock">
+    update PAC_STOCK
+    <set>
+      <if test="WAREHOUSENO != null">
+        WAREHOUSENO = #{WAREHOUSENO,jdbcType=VARCHAR},
+      </if>
+      <if test="RESERVOIRTYPE != null">
+        RESERVOIRTYPE = #{RESERVOIRTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="TRANSPORT != null">
+        TRANSPORT = #{TRANSPORT,jdbcType=VARCHAR},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=VARCHAR},
+      </if>
+      <if test="DRAWERNO != null">
+        DRAWERNO = #{DRAWERNO,jdbcType=NUMERIC},
+      </if>
+      <if test="DRAWERNAME != null">
+        DRAWERNAME = #{DRAWERNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="DRAWERTIME != null">
+        DRAWERTIME = #{DRAWERTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARK != null">
+        REMARK = #{REMARK,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.PacStock">
+    update PAC_STOCK
+    set WAREHOUSENO = #{WAREHOUSENO,jdbcType=VARCHAR},
+      RESERVOIRTYPE = #{RESERVOIRTYPE,jdbcType=NUMERIC},
+      TRANSPORT = #{TRANSPORT,jdbcType=VARCHAR},
+      SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=VARCHAR},
+      DRAWERNO = #{DRAWERNO,jdbcType=NUMERIC},
+      DRAWERNAME = #{DRAWERNAME,jdbcType=VARCHAR},
+      DRAWERTIME = #{DRAWERTIME,jdbcType=TIMESTAMP},
+      REMARK = #{REMARK,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

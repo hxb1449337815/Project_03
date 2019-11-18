@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.IaeExtractMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.IaeExtract">
+    <id column="ID" jdbcType="VARCHAR" property="ID" />
+    <result column="VEHICLEINT" jdbcType="VARCHAR" property="VEHICLEINT" />
+    <result column="TRANSPORTWAY" jdbcType="VARCHAR" property="TRANSPORTWAY" />
+    <result column="WAYBILLID" jdbcType="VARCHAR" property="WAYBILLID" />
+    <result column="ESTIMATEDATE" jdbcType="TIMESTAMP" property="ESTIMATEDATE" />
+    <result column="CARGON" jdbcType="NUMERIC" property="CARGON" />
+    <result column="IMPORTANTHINTS" jdbcType="VARCHAR" property="IMPORTANTHINTS" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, VEHICLEINT, TRANSPORTWAY, WAYBILLID, ESTIMATEDATE, CARGON, IMPORTANTHINTS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IAE_EXTRACT
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IAE_EXTRACT
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.IaeExtract">
+    insert into IAE_EXTRACT (ID, VEHICLEINT, TRANSPORTWAY, 
+      WAYBILLID, ESTIMATEDATE, CARGON, 
+      IMPORTANTHINTS)
+    values (#{ID,jdbcType=VARCHAR}, #{VEHICLEINT,jdbcType=VARCHAR}, #{TRANSPORTWAY,jdbcType=VARCHAR}, 
+      #{WAYBILLID,jdbcType=VARCHAR}, #{ESTIMATEDATE,jdbcType=TIMESTAMP}, #{CARGON,jdbcType=NUMERIC}, 
+      #{IMPORTANTHINTS,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.IaeExtract">
+    insert into IAE_EXTRACT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="VEHICLEINT != null">
+        VEHICLEINT,
+      </if>
+      <if test="TRANSPORTWAY != null">
+        TRANSPORTWAY,
+      </if>
+      <if test="WAYBILLID != null">
+        WAYBILLID,
+      </if>
+      <if test="ESTIMATEDATE != null">
+        ESTIMATEDATE,
+      </if>
+      <if test="CARGON != null">
+        CARGON,
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="VEHICLEINT != null">
+        #{VEHICLEINT,jdbcType=VARCHAR},
+      </if>
+      <if test="TRANSPORTWAY != null">
+        #{TRANSPORTWAY,jdbcType=VARCHAR},
+      </if>
+      <if test="WAYBILLID != null">
+        #{WAYBILLID,jdbcType=VARCHAR},
+      </if>
+      <if test="ESTIMATEDATE != null">
+        #{ESTIMATEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CARGON != null">
+        #{CARGON,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.IaeExtract">
+    update IAE_EXTRACT
+    <set>
+      <if test="VEHICLEINT != null">
+        VEHICLEINT = #{VEHICLEINT,jdbcType=VARCHAR},
+      </if>
+      <if test="TRANSPORTWAY != null">
+        TRANSPORTWAY = #{TRANSPORTWAY,jdbcType=VARCHAR},
+      </if>
+      <if test="WAYBILLID != null">
+        WAYBILLID = #{WAYBILLID,jdbcType=VARCHAR},
+      </if>
+      <if test="ESTIMATEDATE != null">
+        ESTIMATEDATE = #{ESTIMATEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CARGON != null">
+        CARGON = #{CARGON,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.IaeExtract">
+    update IAE_EXTRACT
+    set VEHICLEINT = #{VEHICLEINT,jdbcType=VARCHAR},
+      TRANSPORTWAY = #{TRANSPORTWAY,jdbcType=VARCHAR},
+      WAYBILLID = #{WAYBILLID,jdbcType=VARCHAR},
+      ESTIMATEDATE = #{ESTIMATEDATE,jdbcType=TIMESTAMP},
+      CARGON = #{CARGON,jdbcType=NUMERIC},
+      IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+</mapper>

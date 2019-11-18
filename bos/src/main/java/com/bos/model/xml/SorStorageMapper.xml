@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SorStorageMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SorStorage">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="ACCEPTDATE" jdbcType="TIMESTAMP" property="ACCEPTDATE" />
+    <result column="ACCEPTPERSON" jdbcType="NUMERIC" property="ACCEPTPERSON" />
+    <result column="ACCEPTCOMPANY" jdbcType="VARCHAR" property="ACCEPTCOMPANY" />
+    <result column="DELIVERYPERSON" jdbcType="NUMERIC" property="DELIVERYPERSON" />
+    <result column="DELIVERYCOMPANY" jdbcType="VARCHAR" property="DELIVERYCOMPANY" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ACCEPTDATE, ACCEPTPERSON, ACCEPTCOMPANY, DELIVERYPERSON, DELIVERYCOMPANY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SOR_STORAGE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SOR_STORAGE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SorStorage">
+    insert into SOR_STORAGE (ID, ACCEPTDATE, ACCEPTPERSON, 
+      ACCEPTCOMPANY, DELIVERYPERSON, DELIVERYCOMPANY
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{ACCEPTDATE,jdbcType=TIMESTAMP}, #{ACCEPTPERSON,jdbcType=NUMERIC}, 
+      #{ACCEPTCOMPANY,jdbcType=VARCHAR}, #{DELIVERYPERSON,jdbcType=NUMERIC}, #{DELIVERYCOMPANY,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SorStorage">
+    insert into SOR_STORAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ACCEPTDATE != null">
+        ACCEPTDATE,
+      </if>
+      <if test="ACCEPTPERSON != null">
+        ACCEPTPERSON,
+      </if>
+      <if test="ACCEPTCOMPANY != null">
+        ACCEPTCOMPANY,
+      </if>
+      <if test="DELIVERYPERSON != null">
+        DELIVERYPERSON,
+      </if>
+      <if test="DELIVERYCOMPANY != null">
+        DELIVERYCOMPANY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="ACCEPTDATE != null">
+        #{ACCEPTDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACCEPTPERSON != null">
+        #{ACCEPTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="ACCEPTCOMPANY != null">
+        #{ACCEPTCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="DELIVERYPERSON != null">
+        #{DELIVERYPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYCOMPANY != null">
+        #{DELIVERYCOMPANY,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SorStorage">
+    update SOR_STORAGE
+    <set>
+      <if test="ACCEPTDATE != null">
+        ACCEPTDATE = #{ACCEPTDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACCEPTPERSON != null">
+        ACCEPTPERSON = #{ACCEPTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="ACCEPTCOMPANY != null">
+        ACCEPTCOMPANY = #{ACCEPTCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="DELIVERYPERSON != null">
+        DELIVERYPERSON = #{DELIVERYPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="DELIVERYCOMPANY != null">
+        DELIVERYCOMPANY = #{DELIVERYCOMPANY,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SorStorage">
+    update SOR_STORAGE
+    set ACCEPTDATE = #{ACCEPTDATE,jdbcType=TIMESTAMP},
+      ACCEPTPERSON = #{ACCEPTPERSON,jdbcType=NUMERIC},
+      ACCEPTCOMPANY = #{ACCEPTCOMPANY,jdbcType=VARCHAR},
+      DELIVERYPERSON = #{DELIVERYPERSON,jdbcType=NUMERIC},
+      DELIVERYCOMPANY = #{DELIVERYCOMPANY,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

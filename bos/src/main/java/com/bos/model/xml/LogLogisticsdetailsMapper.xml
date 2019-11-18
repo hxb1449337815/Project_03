@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.LogLogisticsdetailsMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.LogLogisticsdetails">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="LOGISTICSINT" jdbcType="VARCHAR" property="LOGISTICSINT" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="COMPANYNAME" />
+    <result column="EXPECTARRIVALDATE" jdbcType="TIMESTAMP" property="EXPECTARRIVALDATE" />
+    <result column="ACTUALARRIVALDATE" jdbcType="TIMESTAMP" property="ACTUALARRIVALDATE" />
+    <result column="EXPECTDEPARTUREDATE" jdbcType="TIMESTAMP" property="EXPECTDEPARTUREDATE" />
+    <result column="ACTUALDEPARTUREDATE" jdbcType="TIMESTAMP" property="ACTUALDEPARTUREDATE" />
+    <result column="OPERATIONPERSON" jdbcType="VARCHAR" property="OPERATIONPERSON" />
+    <result column="LOGISTICSTYPE" jdbcType="VARCHAR" property="LOGISTICSTYPE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, LOGISTICSINT, COMPANYNAME, EXPECTARRIVALDATE, ACTUALARRIVALDATE, EXPECTDEPARTUREDATE, 
+    ACTUALDEPARTUREDATE, OPERATIONPERSON, LOGISTICSTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOG_LOGISTICSDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from LOG_LOGISTICSDETAILS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.LogLogisticsdetails">
+    insert into LOG_LOGISTICSDETAILS (ID, LOGISTICSINT, COMPANYNAME, 
+      EXPECTARRIVALDATE, ACTUALARRIVALDATE, 
+      EXPECTDEPARTUREDATE, ACTUALDEPARTUREDATE, 
+      OPERATIONPERSON, LOGISTICSTYPE)
+    values (#{ID,jdbcType=NUMERIC}, #{LOGISTICSINT,jdbcType=VARCHAR}, #{COMPANYNAME,jdbcType=VARCHAR}, 
+      #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP}, #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP}, 
+      #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP}, #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP}, 
+      #{OPERATIONPERSON,jdbcType=VARCHAR}, #{LOGISTICSTYPE,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.LogLogisticsdetails">
+    insert into LOG_LOGISTICSDETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="LOGISTICSINT != null">
+        LOGISTICSINT,
+      </if>
+      <if test="COMPANYNAME != null">
+        COMPANYNAME,
+      </if>
+      <if test="EXPECTARRIVALDATE != null">
+        EXPECTARRIVALDATE,
+      </if>
+      <if test="ACTUALARRIVALDATE != null">
+        ACTUALARRIVALDATE,
+      </if>
+      <if test="EXPECTDEPARTUREDATE != null">
+        EXPECTDEPARTUREDATE,
+      </if>
+      <if test="ACTUALDEPARTUREDATE != null">
+        ACTUALDEPARTUREDATE,
+      </if>
+      <if test="OPERATIONPERSON != null">
+        OPERATIONPERSON,
+      </if>
+      <if test="LOGISTICSTYPE != null">
+        LOGISTICSTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="LOGISTICSINT != null">
+        #{LOGISTICSINT,jdbcType=VARCHAR},
+      </if>
+      <if test="COMPANYNAME != null">
+        #{COMPANYNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="EXPECTARRIVALDATE != null">
+        #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALARRIVALDATE != null">
+        #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="EXPECTDEPARTUREDATE != null">
+        #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALDEPARTUREDATE != null">
+        #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="OPERATIONPERSON != null">
+        #{OPERATIONPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="LOGISTICSTYPE != null">
+        #{LOGISTICSTYPE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.LogLogisticsdetails">
+    update LOG_LOGISTICSDETAILS
+    <set>
+      <if test="LOGISTICSINT != null">
+        LOGISTICSINT = #{LOGISTICSINT,jdbcType=VARCHAR},
+      </if>
+      <if test="COMPANYNAME != null">
+        COMPANYNAME = #{COMPANYNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="EXPECTARRIVALDATE != null">
+        EXPECTARRIVALDATE = #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALARRIVALDATE != null">
+        ACTUALARRIVALDATE = #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="EXPECTDEPARTUREDATE != null">
+        EXPECTDEPARTUREDATE = #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALDEPARTUREDATE != null">
+        ACTUALDEPARTUREDATE = #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="OPERATIONPERSON != null">
+        OPERATIONPERSON = #{OPERATIONPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="LOGISTICSTYPE != null">
+        LOGISTICSTYPE = #{LOGISTICSTYPE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.LogLogisticsdetails">
+    update LOG_LOGISTICSDETAILS
+    set LOGISTICSINT = #{LOGISTICSINT,jdbcType=VARCHAR},
+      COMPANYNAME = #{COMPANYNAME,jdbcType=VARCHAR},
+      EXPECTARRIVALDATE = #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP},
+      ACTUALARRIVALDATE = #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP},
+      EXPECTDEPARTUREDATE = #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP},
+      ACTUALDEPARTUREDATE = #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP},
+      OPERATIONPERSON = #{OPERATIONPERSON,jdbcType=VARCHAR},
+      LOGISTICSTYPE = #{LOGISTICSTYPE,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BiglogLogisticscontroltableMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BiglogLogisticscontroltable">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="WORKSHEETNO" jdbcType="VARCHAR" property="WORKSHEETNO" />
+    <result column="CTYPE" jdbcType="NUMERIC" property="CTYPE" />
+    <result column="CORPORATION" jdbcType="VARCHAR" property="CORPORATION" />
+    <result column="WAYBILLID" jdbcType="VARCHAR" property="WAYBILLID" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="REMARKS" />
+    <result column="INPUTPERSON" jdbcType="NUMERIC" property="INPUTPERSON" />
+    <result column="INPUTDATE" jdbcType="TIMESTAMP" property="INPUTDATE" />
+    <result column="INPUTCOMPANY" jdbcType="NUMERIC" property="INPUTCOMPANY" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WORKSHEETNO, CTYPE, CORPORATION, WAYBILLID, REMARKS, INPUTPERSON, INPUTDATE, 
+    INPUTCOMPANY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BIGLOG_LOGISTICSCONTROLTABLE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BIGLOG_LOGISTICSCONTROLTABLE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BiglogLogisticscontroltable">
+    insert into BIGLOG_LOGISTICSCONTROLTABLE (ID, WORKSHEETNO, CTYPE, 
+      CORPORATION, WAYBILLID, REMARKS, 
+      INPUTPERSON, INPUTDATE, INPUTCOMPANY
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{WORKSHEETNO,jdbcType=VARCHAR}, #{CTYPE,jdbcType=NUMERIC}, 
+      #{CORPORATION,jdbcType=VARCHAR}, #{WAYBILLID,jdbcType=VARCHAR}, #{REMARKS,jdbcType=VARCHAR}, 
+      #{INPUTPERSON,jdbcType=NUMERIC}, #{INPUTDATE,jdbcType=TIMESTAMP}, #{INPUTCOMPANY,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BiglogLogisticscontroltable">
+    insert into BIGLOG_LOGISTICSCONTROLTABLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO,
+      </if>
+      <if test="CTYPE != null">
+        CTYPE,
+      </if>
+      <if test="CORPORATION != null">
+        CORPORATION,
+      </if>
+      <if test="WAYBILLID != null">
+        WAYBILLID,
+      </if>
+      <if test="REMARKS != null">
+        REMARKS,
+      </if>
+      <if test="INPUTPERSON != null">
+        INPUTPERSON,
+      </if>
+      <if test="INPUTDATE != null">
+        INPUTDATE,
+      </if>
+      <if test="INPUTCOMPANY != null">
+        INPUTCOMPANY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKSHEETNO != null">
+        #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="CTYPE != null">
+        #{CTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="CORPORATION != null">
+        #{CORPORATION,jdbcType=VARCHAR},
+      </if>
+      <if test="WAYBILLID != null">
+        #{WAYBILLID,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARKS != null">
+        #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTPERSON != null">
+        #{INPUTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTDATE != null">
+        #{INPUTDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INPUTCOMPANY != null">
+        #{INPUTCOMPANY,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BiglogLogisticscontroltable">
+    update BIGLOG_LOGISTICSCONTROLTABLE
+    <set>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO = #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="CTYPE != null">
+        CTYPE = #{CTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="CORPORATION != null">
+        CORPORATION = #{CORPORATION,jdbcType=VARCHAR},
+      </if>
+      <if test="WAYBILLID != null">
+        WAYBILLID = #{WAYBILLID,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARKS != null">
+        REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTPERSON != null">
+        INPUTPERSON = #{INPUTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTDATE != null">
+        INPUTDATE = #{INPUTDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INPUTCOMPANY != null">
+        INPUTCOMPANY = #{INPUTCOMPANY,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BiglogLogisticscontroltable">
+    update BIGLOG_LOGISTICSCONTROLTABLE
+    set WORKSHEETNO = #{WORKSHEETNO,jdbcType=VARCHAR},
+      CTYPE = #{CTYPE,jdbcType=NUMERIC},
+      CORPORATION = #{CORPORATION,jdbcType=VARCHAR},
+      WAYBILLID = #{WAYBILLID,jdbcType=VARCHAR},
+      REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      INPUTPERSON = #{INPUTPERSON,jdbcType=NUMERIC},
+      INPUTDATE = #{INPUTDATE,jdbcType=TIMESTAMP},
+      INPUTCOMPANY = #{INPUTCOMPANY,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

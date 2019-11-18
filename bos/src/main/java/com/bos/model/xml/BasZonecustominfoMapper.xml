@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BasZonecustominfoMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BasZonecustominfo">
+    <id column="CUSTOMCODE" jdbcType="NUMERIC" property="CUSTOMCODE" />
+    <result column="CUSTOMNAME" jdbcType="VARCHAR" property="CUSTOMNAME" />
+    <result column="MOBILENO" jdbcType="NUMERIC" property="MOBILENO" />
+    <result column="CITYNAME" jdbcType="VARCHAR" property="CITYNAME" />
+    <result column="CSTOMADDRESS" jdbcType="VARCHAR" property="CSTOMADDRESS" />
+    <result column="ZONEINFOID" jdbcType="NUMERIC" property="ZONEINFOID" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CUSTOMCODE, CUSTOMNAME, MOBILENO, CITYNAME, CSTOMADDRESS, ZONEINFOID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_ZONECUSTOMINFO
+    where CUSTOMCODE = #{CUSTOMCODE,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BAS_ZONECUSTOMINFO
+    where CUSTOMCODE = #{CUSTOMCODE,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BasZonecustominfo">
+    insert into BAS_ZONECUSTOMINFO (CUSTOMCODE, CUSTOMNAME, MOBILENO, 
+      CITYNAME, CSTOMADDRESS, ZONEINFOID
+      )
+    values (#{CUSTOMCODE,jdbcType=NUMERIC}, #{CUSTOMNAME,jdbcType=VARCHAR}, #{MOBILENO,jdbcType=NUMERIC}, 
+      #{CITYNAME,jdbcType=VARCHAR}, #{CSTOMADDRESS,jdbcType=VARCHAR}, #{ZONEINFOID,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BasZonecustominfo">
+    insert into BAS_ZONECUSTOMINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="CUSTOMCODE != null">
+        CUSTOMCODE,
+      </if>
+      <if test="CUSTOMNAME != null">
+        CUSTOMNAME,
+      </if>
+      <if test="MOBILENO != null">
+        MOBILENO,
+      </if>
+      <if test="CITYNAME != null">
+        CITYNAME,
+      </if>
+      <if test="CSTOMADDRESS != null">
+        CSTOMADDRESS,
+      </if>
+      <if test="ZONEINFOID != null">
+        ZONEINFOID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="CUSTOMCODE != null">
+        #{CUSTOMCODE,jdbcType=NUMERIC},
+      </if>
+      <if test="CUSTOMNAME != null">
+        #{CUSTOMNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="MOBILENO != null">
+        #{MOBILENO,jdbcType=NUMERIC},
+      </if>
+      <if test="CITYNAME != null">
+        #{CITYNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CSTOMADDRESS != null">
+        #{CSTOMADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="ZONEINFOID != null">
+        #{ZONEINFOID,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BasZonecustominfo">
+    update BAS_ZONECUSTOMINFO
+    <set>
+      <if test="CUSTOMNAME != null">
+        CUSTOMNAME = #{CUSTOMNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="MOBILENO != null">
+        MOBILENO = #{MOBILENO,jdbcType=NUMERIC},
+      </if>
+      <if test="CITYNAME != null">
+        CITYNAME = #{CITYNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CSTOMADDRESS != null">
+        CSTOMADDRESS = #{CSTOMADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="ZONEINFOID != null">
+        ZONEINFOID = #{ZONEINFOID,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where CUSTOMCODE = #{CUSTOMCODE,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BasZonecustominfo">
+    update BAS_ZONECUSTOMINFO
+    set CUSTOMNAME = #{CUSTOMNAME,jdbcType=VARCHAR},
+      MOBILENO = #{MOBILENO,jdbcType=NUMERIC},
+      CITYNAME = #{CITYNAME,jdbcType=VARCHAR},
+      CSTOMADDRESS = #{CSTOMADDRESS,jdbcType=VARCHAR},
+      ZONEINFOID = #{ZONEINFOID,jdbcType=NUMERIC}
+    where CUSTOMCODE = #{CUSTOMCODE,jdbcType=NUMERIC}
+  </update>
+</mapper>

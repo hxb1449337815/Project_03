@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.IaeDepartureMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.IaeDeparture">
+    <id column="ID" jdbcType="VARCHAR" property="ID" />
+    <result column="PACKINGID" jdbcType="VARCHAR" property="PACKINGID" />
+    <result column="TRANSFER" jdbcType="NUMERIC" property="TRANSFER" />
+    <result column="ACTUALCOUNT" jdbcType="NUMERIC" property="ACTUALCOUNT" />
+    <result column="DESTINATION" jdbcType="VARCHAR" property="DESTINATION" />
+    <result column="WARENAME" jdbcType="NUMERIC" property="WARENAME" />
+    <result column="CARGOCOUNT" jdbcType="NUMERIC" property="CARGOCOUNT" />
+    <result column="WEIGHT" jdbcType="NUMERIC" property="WEIGHT" />
+    <result column="VOLUME" jdbcType="NUMERIC" property="VOLUME" />
+    <result column="ACTUALVOLUME" jdbcType="NUMERIC" property="ACTUALVOLUME" />
+    <result column="TIMELIMIT" jdbcType="TIMESTAMP" property="TIMELIMIT" />
+    <result column="ASK" jdbcType="VARCHAR" property="ASK" />
+    <result column="TAKECARGOPERSON" jdbcType="VARCHAR" property="TAKECARGOPERSON" />
+    <result column="TACKCARGOADDRESS" jdbcType="VARCHAR" property="TACKCARGOADDRESS" />
+    <result column="PAYMENT" jdbcType="NUMERIC" property="PAYMENT" />
+    <result column="IMPORTANTHINTS" jdbcType="VARCHAR" property="IMPORTANTHINTS" />
+    <result column="SURPLUSTIME" jdbcType="TIMESTAMP" property="SURPLUSTIME" />
+    <result column="ENTRUSTCOMPANY" jdbcType="VARCHAR" property="ENTRUSTCOMPANY" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PACKINGID, TRANSFER, ACTUALCOUNT, DESTINATION, WARENAME, CARGOCOUNT, WEIGHT, 
+    VOLUME, ACTUALVOLUME, TIMELIMIT, ASK, TAKECARGOPERSON, TACKCARGOADDRESS, PAYMENT, 
+    IMPORTANTHINTS, SURPLUSTIME, ENTRUSTCOMPANY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IAE_DEPARTURE
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IAE_DEPARTURE
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.IaeDeparture">
+    insert into IAE_DEPARTURE (ID, PACKINGID, TRANSFER, 
+      ACTUALCOUNT, DESTINATION, WARENAME, 
+      CARGOCOUNT, WEIGHT, VOLUME, 
+      ACTUALVOLUME, TIMELIMIT, ASK, 
+      TAKECARGOPERSON, TACKCARGOADDRESS, PAYMENT, 
+      IMPORTANTHINTS, SURPLUSTIME, ENTRUSTCOMPANY
+      )
+    values (#{ID,jdbcType=VARCHAR}, #{PACKINGID,jdbcType=VARCHAR}, #{TRANSFER,jdbcType=NUMERIC}, 
+      #{ACTUALCOUNT,jdbcType=NUMERIC}, #{DESTINATION,jdbcType=VARCHAR}, #{WARENAME,jdbcType=NUMERIC}, 
+      #{CARGOCOUNT,jdbcType=NUMERIC}, #{WEIGHT,jdbcType=NUMERIC}, #{VOLUME,jdbcType=NUMERIC}, 
+      #{ACTUALVOLUME,jdbcType=NUMERIC}, #{TIMELIMIT,jdbcType=TIMESTAMP}, #{ASK,jdbcType=VARCHAR}, 
+      #{TAKECARGOPERSON,jdbcType=VARCHAR}, #{TACKCARGOADDRESS,jdbcType=VARCHAR}, #{PAYMENT,jdbcType=NUMERIC}, 
+      #{IMPORTANTHINTS,jdbcType=VARCHAR}, #{SURPLUSTIME,jdbcType=TIMESTAMP}, #{ENTRUSTCOMPANY,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.IaeDeparture">
+    insert into IAE_DEPARTURE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="PACKINGID != null">
+        PACKINGID,
+      </if>
+      <if test="TRANSFER != null">
+        TRANSFER,
+      </if>
+      <if test="ACTUALCOUNT != null">
+        ACTUALCOUNT,
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION,
+      </if>
+      <if test="WARENAME != null">
+        WARENAME,
+      </if>
+      <if test="CARGOCOUNT != null">
+        CARGOCOUNT,
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT,
+      </if>
+      <if test="VOLUME != null">
+        VOLUME,
+      </if>
+      <if test="ACTUALVOLUME != null">
+        ACTUALVOLUME,
+      </if>
+      <if test="TIMELIMIT != null">
+        TIMELIMIT,
+      </if>
+      <if test="ASK != null">
+        ASK,
+      </if>
+      <if test="TAKECARGOPERSON != null">
+        TAKECARGOPERSON,
+      </if>
+      <if test="TACKCARGOADDRESS != null">
+        TACKCARGOADDRESS,
+      </if>
+      <if test="PAYMENT != null">
+        PAYMENT,
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS,
+      </if>
+      <if test="SURPLUSTIME != null">
+        SURPLUSTIME,
+      </if>
+      <if test="ENTRUSTCOMPANY != null">
+        ENTRUSTCOMPANY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="PACKINGID != null">
+        #{PACKINGID,jdbcType=VARCHAR},
+      </if>
+      <if test="TRANSFER != null">
+        #{TRANSFER,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALCOUNT != null">
+        #{ACTUALCOUNT,jdbcType=NUMERIC},
+      </if>
+      <if test="DESTINATION != null">
+        #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="WARENAME != null">
+        #{WARENAME,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOCOUNT != null">
+        #{CARGOCOUNT,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALVOLUME != null">
+        #{ACTUALVOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="TIMELIMIT != null">
+        #{TIMELIMIT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ASK != null">
+        #{ASK,jdbcType=VARCHAR},
+      </if>
+      <if test="TAKECARGOPERSON != null">
+        #{TAKECARGOPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="TACKCARGOADDRESS != null">
+        #{TACKCARGOADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="PAYMENT != null">
+        #{PAYMENT,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+      <if test="SURPLUSTIME != null">
+        #{SURPLUSTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ENTRUSTCOMPANY != null">
+        #{ENTRUSTCOMPANY,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.IaeDeparture">
+    update IAE_DEPARTURE
+    <set>
+      <if test="PACKINGID != null">
+        PACKINGID = #{PACKINGID,jdbcType=VARCHAR},
+      </if>
+      <if test="TRANSFER != null">
+        TRANSFER = #{TRANSFER,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALCOUNT != null">
+        ACTUALCOUNT = #{ACTUALCOUNT,jdbcType=NUMERIC},
+      </if>
+      <if test="DESTINATION != null">
+        DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      </if>
+      <if test="WARENAME != null">
+        WARENAME = #{WARENAME,jdbcType=NUMERIC},
+      </if>
+      <if test="CARGOCOUNT != null">
+        CARGOCOUNT = #{CARGOCOUNT,jdbcType=NUMERIC},
+      </if>
+      <if test="WEIGHT != null">
+        WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      </if>
+      <if test="VOLUME != null">
+        VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALVOLUME != null">
+        ACTUALVOLUME = #{ACTUALVOLUME,jdbcType=NUMERIC},
+      </if>
+      <if test="TIMELIMIT != null">
+        TIMELIMIT = #{TIMELIMIT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ASK != null">
+        ASK = #{ASK,jdbcType=VARCHAR},
+      </if>
+      <if test="TAKECARGOPERSON != null">
+        TAKECARGOPERSON = #{TAKECARGOPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="TACKCARGOADDRESS != null">
+        TACKCARGOADDRESS = #{TACKCARGOADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="PAYMENT != null">
+        PAYMENT = #{PAYMENT,jdbcType=NUMERIC},
+      </if>
+      <if test="IMPORTANTHINTS != null">
+        IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      </if>
+      <if test="SURPLUSTIME != null">
+        SURPLUSTIME = #{SURPLUSTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ENTRUSTCOMPANY != null">
+        ENTRUSTCOMPANY = #{ENTRUSTCOMPANY,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.IaeDeparture">
+    update IAE_DEPARTURE
+    set PACKINGID = #{PACKINGID,jdbcType=VARCHAR},
+      TRANSFER = #{TRANSFER,jdbcType=NUMERIC},
+      ACTUALCOUNT = #{ACTUALCOUNT,jdbcType=NUMERIC},
+      DESTINATION = #{DESTINATION,jdbcType=VARCHAR},
+      WARENAME = #{WARENAME,jdbcType=NUMERIC},
+      CARGOCOUNT = #{CARGOCOUNT,jdbcType=NUMERIC},
+      WEIGHT = #{WEIGHT,jdbcType=NUMERIC},
+      VOLUME = #{VOLUME,jdbcType=NUMERIC},
+      ACTUALVOLUME = #{ACTUALVOLUME,jdbcType=NUMERIC},
+      TIMELIMIT = #{TIMELIMIT,jdbcType=TIMESTAMP},
+      ASK = #{ASK,jdbcType=VARCHAR},
+      TAKECARGOPERSON = #{TAKECARGOPERSON,jdbcType=VARCHAR},
+      TACKCARGOADDRESS = #{TACKCARGOADDRESS,jdbcType=VARCHAR},
+      PAYMENT = #{PAYMENT,jdbcType=NUMERIC},
+      IMPORTANTHINTS = #{IMPORTANTHINTS,jdbcType=VARCHAR},
+      SURPLUSTIME = #{SURPLUSTIME,jdbcType=TIMESTAMP},
+      ENTRUSTCOMPANY = #{ENTRUSTCOMPANY,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+</mapper>

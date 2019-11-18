@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.PacStockitemMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.PacStockitem">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="WAREHOUSENO" jdbcType="VARCHAR" property="WAREHOUSENO" />
+    <result column="GOODSCODE" jdbcType="VARCHAR" property="GOODSCODE" />
+    <result column="GOODSNAME" jdbcType="VARCHAR" property="GOODSNAME" />
+    <result column="STORAGENUM" jdbcType="NUMERIC" property="STORAGENUM" />
+    <result column="ACTUALNUM" jdbcType="NUMERIC" property="ACTUALNUM" />
+    <result column="PLANNEDPRICE" jdbcType="NUMERIC" property="PLANNEDPRICE" />
+    <result column="SPECIFICATIONS" jdbcType="VARCHAR" property="SPECIFICATIONS" />
+    <result column="TYPE" jdbcType="NUMERIC" property="TYPE" />
+    <result column="STATUS" jdbcType="NUMERIC" property="STATUS" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WAREHOUSENO, GOODSCODE, GOODSNAME, STORAGENUM, ACTUALNUM, PLANNEDPRICE, SPECIFICATIONS, 
+    TYPE, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PAC_STOCKITEM
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from PAC_STOCKITEM
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.PacStockitem">
+    insert into PAC_STOCKITEM (ID, WAREHOUSENO, GOODSCODE, 
+      GOODSNAME, STORAGENUM, ACTUALNUM, 
+      PLANNEDPRICE, SPECIFICATIONS, TYPE, 
+      STATUS)
+    values (#{ID,jdbcType=NUMERIC}, #{WAREHOUSENO,jdbcType=VARCHAR}, #{GOODSCODE,jdbcType=VARCHAR}, 
+      #{GOODSNAME,jdbcType=VARCHAR}, #{STORAGENUM,jdbcType=NUMERIC}, #{ACTUALNUM,jdbcType=NUMERIC}, 
+      #{PLANNEDPRICE,jdbcType=NUMERIC}, #{SPECIFICATIONS,jdbcType=VARCHAR}, #{TYPE,jdbcType=NUMERIC}, 
+      #{STATUS,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.PacStockitem">
+    insert into PAC_STOCKITEM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="WAREHOUSENO != null">
+        WAREHOUSENO,
+      </if>
+      <if test="GOODSCODE != null">
+        GOODSCODE,
+      </if>
+      <if test="GOODSNAME != null">
+        GOODSNAME,
+      </if>
+      <if test="STORAGENUM != null">
+        STORAGENUM,
+      </if>
+      <if test="ACTUALNUM != null">
+        ACTUALNUM,
+      </if>
+      <if test="PLANNEDPRICE != null">
+        PLANNEDPRICE,
+      </if>
+      <if test="SPECIFICATIONS != null">
+        SPECIFICATIONS,
+      </if>
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="STATUS != null">
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="WAREHOUSENO != null">
+        #{WAREHOUSENO,jdbcType=VARCHAR},
+      </if>
+      <if test="GOODSCODE != null">
+        #{GOODSCODE,jdbcType=VARCHAR},
+      </if>
+      <if test="GOODSNAME != null">
+        #{GOODSNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STORAGENUM != null">
+        #{STORAGENUM,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALNUM != null">
+        #{ACTUALNUM,jdbcType=NUMERIC},
+      </if>
+      <if test="PLANNEDPRICE != null">
+        #{PLANNEDPRICE,jdbcType=NUMERIC},
+      </if>
+      <if test="SPECIFICATIONS != null">
+        #{SPECIFICATIONS,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="STATUS != null">
+        #{STATUS,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.PacStockitem">
+    update PAC_STOCKITEM
+    <set>
+      <if test="WAREHOUSENO != null">
+        WAREHOUSENO = #{WAREHOUSENO,jdbcType=VARCHAR},
+      </if>
+      <if test="GOODSCODE != null">
+        GOODSCODE = #{GOODSCODE,jdbcType=VARCHAR},
+      </if>
+      <if test="GOODSNAME != null">
+        GOODSNAME = #{GOODSNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STORAGENUM != null">
+        STORAGENUM = #{STORAGENUM,jdbcType=NUMERIC},
+      </if>
+      <if test="ACTUALNUM != null">
+        ACTUALNUM = #{ACTUALNUM,jdbcType=NUMERIC},
+      </if>
+      <if test="PLANNEDPRICE != null">
+        PLANNEDPRICE = #{PLANNEDPRICE,jdbcType=NUMERIC},
+      </if>
+      <if test="SPECIFICATIONS != null">
+        SPECIFICATIONS = #{SPECIFICATIONS,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null">
+        TYPE = #{TYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="STATUS != null">
+        STATUS = #{STATUS,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.PacStockitem">
+    update PAC_STOCKITEM
+    set WAREHOUSENO = #{WAREHOUSENO,jdbcType=VARCHAR},
+      GOODSCODE = #{GOODSCODE,jdbcType=VARCHAR},
+      GOODSNAME = #{GOODSNAME,jdbcType=VARCHAR},
+      STORAGENUM = #{STORAGENUM,jdbcType=NUMERIC},
+      ACTUALNUM = #{ACTUALNUM,jdbcType=NUMERIC},
+      PLANNEDPRICE = #{PLANNEDPRICE,jdbcType=NUMERIC},
+      SPECIFICATIONS = #{SPECIFICATIONS,jdbcType=VARCHAR},
+      TYPE = #{TYPE,jdbcType=NUMERIC},
+      STATUS = #{STATUS,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.AccWorkorderMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.AccWorkorder">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="BUSINESSNOTICENO" jdbcType="VARCHAR" property="BUSINESSNOTICENO" />
+    <result column="JOBNO" jdbcType="VARCHAR" property="JOBNO" />
+    <result column="JOBTYPE" jdbcType="NUMERIC" property="JOBTYPE" />
+    <result column="PICKUPSTATUS" jdbcType="NUMERIC" property="PICKUPSTATUS" />
+    <result column="SHORTMESSAGEINT" jdbcType="NUMERIC" property="SHORTMESSAGEINT" />
+    <result column="WORKGENERATIONTIME" jdbcType="TIMESTAMP" property="WORKGENERATIONTIME" />
+    <result column="AFTERSINGLENUM" jdbcType="NUMERIC" property="AFTERSINGLENUM" />
+    <result column="SMALLMEMBERNUM" jdbcType="NUMERIC" property="SMALLMEMBERNUM" />
+    <result column="PICKUPUNIT" jdbcType="NUMERIC" property="PICKUPUNIT" />
+    <result column="PICKUPTIME" jdbcType="TIMESTAMP" property="PICKUPTIME" />
+    <result column="SORTINGCODE" jdbcType="VARCHAR" property="SORTINGCODE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, BUSINESSNOTICENO, JOBNO, JOBTYPE, PICKUPSTATUS, SHORTMESSAGEINT, WORKGENERATIONTIME, 
+    AFTERSINGLENUM, SMALLMEMBERNUM, PICKUPUNIT, PICKUPTIME, SORTINGCODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ACC_WORKORDER
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from ACC_WORKORDER
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.AccWorkorder">
+    insert into ACC_WORKORDER (ID, BUSINESSNOTICENO, JOBNO, 
+      JOBTYPE, PICKUPSTATUS, SHORTMESSAGEINT, 
+      WORKGENERATIONTIME, AFTERSINGLENUM, SMALLMEMBERNUM, 
+      PICKUPUNIT, PICKUPTIME, SORTINGCODE
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{BUSINESSNOTICENO,jdbcType=VARCHAR}, #{JOBNO,jdbcType=VARCHAR}, 
+      #{JOBTYPE,jdbcType=NUMERIC}, #{PICKUPSTATUS,jdbcType=NUMERIC}, #{SHORTMESSAGEINT,jdbcType=NUMERIC}, 
+      #{WORKGENERATIONTIME,jdbcType=TIMESTAMP}, #{AFTERSINGLENUM,jdbcType=NUMERIC}, #{SMALLMEMBERNUM,jdbcType=NUMERIC}, 
+      #{PICKUPUNIT,jdbcType=NUMERIC}, #{PICKUPTIME,jdbcType=TIMESTAMP}, #{SORTINGCODE,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.AccWorkorder">
+    insert into ACC_WORKORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="BUSINESSNOTICENO != null">
+        BUSINESSNOTICENO,
+      </if>
+      <if test="JOBNO != null">
+        JOBNO,
+      </if>
+      <if test="JOBTYPE != null">
+        JOBTYPE,
+      </if>
+      <if test="PICKUPSTATUS != null">
+        PICKUPSTATUS,
+      </if>
+      <if test="SHORTMESSAGEINT != null">
+        SHORTMESSAGEINT,
+      </if>
+      <if test="WORKGENERATIONTIME != null">
+        WORKGENERATIONTIME,
+      </if>
+      <if test="AFTERSINGLENUM != null">
+        AFTERSINGLENUM,
+      </if>
+      <if test="SMALLMEMBERNUM != null">
+        SMALLMEMBERNUM,
+      </if>
+      <if test="PICKUPUNIT != null">
+        PICKUPUNIT,
+      </if>
+      <if test="PICKUPTIME != null">
+        PICKUPTIME,
+      </if>
+      <if test="SORTINGCODE != null">
+        SORTINGCODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="BUSINESSNOTICENO != null">
+        #{BUSINESSNOTICENO,jdbcType=VARCHAR},
+      </if>
+      <if test="JOBNO != null">
+        #{JOBNO,jdbcType=VARCHAR},
+      </if>
+      <if test="JOBTYPE != null">
+        #{JOBTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="PICKUPSTATUS != null">
+        #{PICKUPSTATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="SHORTMESSAGEINT != null">
+        #{SHORTMESSAGEINT,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKGENERATIONTIME != null">
+        #{WORKGENERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="AFTERSINGLENUM != null">
+        #{AFTERSINGLENUM,jdbcType=NUMERIC},
+      </if>
+      <if test="SMALLMEMBERNUM != null">
+        #{SMALLMEMBERNUM,jdbcType=NUMERIC},
+      </if>
+      <if test="PICKUPUNIT != null">
+        #{PICKUPUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="PICKUPTIME != null">
+        #{PICKUPTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SORTINGCODE != null">
+        #{SORTINGCODE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.AccWorkorder">
+    update ACC_WORKORDER
+    <set>
+      <if test="BUSINESSNOTICENO != null">
+        BUSINESSNOTICENO = #{BUSINESSNOTICENO,jdbcType=VARCHAR},
+      </if>
+      <if test="JOBNO != null">
+        JOBNO = #{JOBNO,jdbcType=VARCHAR},
+      </if>
+      <if test="JOBTYPE != null">
+        JOBTYPE = #{JOBTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="PICKUPSTATUS != null">
+        PICKUPSTATUS = #{PICKUPSTATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="SHORTMESSAGEINT != null">
+        SHORTMESSAGEINT = #{SHORTMESSAGEINT,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKGENERATIONTIME != null">
+        WORKGENERATIONTIME = #{WORKGENERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="AFTERSINGLENUM != null">
+        AFTERSINGLENUM = #{AFTERSINGLENUM,jdbcType=NUMERIC},
+      </if>
+      <if test="SMALLMEMBERNUM != null">
+        SMALLMEMBERNUM = #{SMALLMEMBERNUM,jdbcType=NUMERIC},
+      </if>
+      <if test="PICKUPUNIT != null">
+        PICKUPUNIT = #{PICKUPUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="PICKUPTIME != null">
+        PICKUPTIME = #{PICKUPTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="SORTINGCODE != null">
+        SORTINGCODE = #{SORTINGCODE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.AccWorkorder">
+    update ACC_WORKORDER
+    set BUSINESSNOTICENO = #{BUSINESSNOTICENO,jdbcType=VARCHAR},
+      JOBNO = #{JOBNO,jdbcType=VARCHAR},
+      JOBTYPE = #{JOBTYPE,jdbcType=NUMERIC},
+      PICKUPSTATUS = #{PICKUPSTATUS,jdbcType=NUMERIC},
+      SHORTMESSAGEINT = #{SHORTMESSAGEINT,jdbcType=NUMERIC},
+      WORKGENERATIONTIME = #{WORKGENERATIONTIME,jdbcType=TIMESTAMP},
+      AFTERSINGLENUM = #{AFTERSINGLENUM,jdbcType=NUMERIC},
+      SMALLMEMBERNUM = #{SMALLMEMBERNUM,jdbcType=NUMERIC},
+      PICKUPUNIT = #{PICKUPUNIT,jdbcType=NUMERIC},
+      PICKUPTIME = #{PICKUPTIME,jdbcType=TIMESTAMP},
+      SORTINGCODE = #{SORTINGCODE,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

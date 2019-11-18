@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.LogLogisticsMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.LogLogistics">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="LOGISTICSINT" jdbcType="VARCHAR" property="LOGISTICSINT" />
+    <result column="LINENAME" jdbcType="VARCHAR" property="LINENAME" />
+    <result column="STARTCOMPANY" jdbcType="VARCHAR" property="STARTCOMPANY" />
+    <result column="GENERATEPERSON" jdbcType="VARCHAR" property="GENERATEPERSON" />
+    <result column="CARINT" jdbcType="VARCHAR" property="CARINT" />
+    <result column="DRIVER" jdbcType="VARCHAR" property="DRIVER" />
+    <result column="DRIVERPHONE" jdbcType="VARCHAR" property="DRIVERPHONE" />
+    <result column="CARTYPE" jdbcType="VARCHAR" property="CARTYPE" />
+    <result column="LOGISTICSSTATE" jdbcType="VARCHAR" property="LOGISTICSSTATE" />
+    <result column="ISCANCEL" jdbcType="NUMERIC" property="ISCANCEL" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, LOGISTICSINT, LINENAME, STARTCOMPANY, GENERATEPERSON, CARINT, DRIVER, DRIVERPHONE, 
+    CARTYPE, LOGISTICSSTATE, ISCANCEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOG_LOGISTICS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from LOG_LOGISTICS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.LogLogistics">
+    insert into LOG_LOGISTICS (ID, LOGISTICSINT, LINENAME, 
+      STARTCOMPANY, GENERATEPERSON, CARINT, 
+      DRIVER, DRIVERPHONE, CARTYPE, 
+      LOGISTICSSTATE, ISCANCEL)
+    values (#{ID,jdbcType=NUMERIC}, #{LOGISTICSINT,jdbcType=VARCHAR}, #{LINENAME,jdbcType=VARCHAR}, 
+      #{STARTCOMPANY,jdbcType=VARCHAR}, #{GENERATEPERSON,jdbcType=VARCHAR}, #{CARINT,jdbcType=VARCHAR}, 
+      #{DRIVER,jdbcType=VARCHAR}, #{DRIVERPHONE,jdbcType=VARCHAR}, #{CARTYPE,jdbcType=VARCHAR}, 
+      #{LOGISTICSSTATE,jdbcType=VARCHAR}, #{ISCANCEL,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.LogLogistics">
+    insert into LOG_LOGISTICS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="LOGISTICSINT != null">
+        LOGISTICSINT,
+      </if>
+      <if test="LINENAME != null">
+        LINENAME,
+      </if>
+      <if test="STARTCOMPANY != null">
+        STARTCOMPANY,
+      </if>
+      <if test="GENERATEPERSON != null">
+        GENERATEPERSON,
+      </if>
+      <if test="CARINT != null">
+        CARINT,
+      </if>
+      <if test="DRIVER != null">
+        DRIVER,
+      </if>
+      <if test="DRIVERPHONE != null">
+        DRIVERPHONE,
+      </if>
+      <if test="CARTYPE != null">
+        CARTYPE,
+      </if>
+      <if test="LOGISTICSSTATE != null">
+        LOGISTICSSTATE,
+      </if>
+      <if test="ISCANCEL != null">
+        ISCANCEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="LOGISTICSINT != null">
+        #{LOGISTICSINT,jdbcType=VARCHAR},
+      </if>
+      <if test="LINENAME != null">
+        #{LINENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTCOMPANY != null">
+        #{STARTCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="GENERATEPERSON != null">
+        #{GENERATEPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="CARINT != null">
+        #{CARINT,jdbcType=VARCHAR},
+      </if>
+      <if test="DRIVER != null">
+        #{DRIVER,jdbcType=VARCHAR},
+      </if>
+      <if test="DRIVERPHONE != null">
+        #{DRIVERPHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="CARTYPE != null">
+        #{CARTYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="LOGISTICSSTATE != null">
+        #{LOGISTICSSTATE,jdbcType=VARCHAR},
+      </if>
+      <if test="ISCANCEL != null">
+        #{ISCANCEL,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.LogLogistics">
+    update LOG_LOGISTICS
+    <set>
+      <if test="LOGISTICSINT != null">
+        LOGISTICSINT = #{LOGISTICSINT,jdbcType=VARCHAR},
+      </if>
+      <if test="LINENAME != null">
+        LINENAME = #{LINENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTCOMPANY != null">
+        STARTCOMPANY = #{STARTCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="GENERATEPERSON != null">
+        GENERATEPERSON = #{GENERATEPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="CARINT != null">
+        CARINT = #{CARINT,jdbcType=VARCHAR},
+      </if>
+      <if test="DRIVER != null">
+        DRIVER = #{DRIVER,jdbcType=VARCHAR},
+      </if>
+      <if test="DRIVERPHONE != null">
+        DRIVERPHONE = #{DRIVERPHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="CARTYPE != null">
+        CARTYPE = #{CARTYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="LOGISTICSSTATE != null">
+        LOGISTICSSTATE = #{LOGISTICSSTATE,jdbcType=VARCHAR},
+      </if>
+      <if test="ISCANCEL != null">
+        ISCANCEL = #{ISCANCEL,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.LogLogistics">
+    update LOG_LOGISTICS
+    set LOGISTICSINT = #{LOGISTICSINT,jdbcType=VARCHAR},
+      LINENAME = #{LINENAME,jdbcType=VARCHAR},
+      STARTCOMPANY = #{STARTCOMPANY,jdbcType=VARCHAR},
+      GENERATEPERSON = #{GENERATEPERSON,jdbcType=VARCHAR},
+      CARINT = #{CARINT,jdbcType=VARCHAR},
+      DRIVER = #{DRIVER,jdbcType=VARCHAR},
+      DRIVERPHONE = #{DRIVERPHONE,jdbcType=VARCHAR},
+      CARTYPE = #{CARTYPE,jdbcType=VARCHAR},
+      LOGISTICSSTATE = #{LOGISTICSSTATE,jdbcType=VARCHAR},
+      ISCANCEL = #{ISCANCEL,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

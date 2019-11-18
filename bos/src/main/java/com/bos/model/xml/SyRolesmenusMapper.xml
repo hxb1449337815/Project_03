@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SyRolesmenusMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SyRolesmenus">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="ROLEID" jdbcType="NUMERIC" property="ROLEID" />
+    <result column="MENUID" jdbcType="NUMERIC" property="MENUID" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ROLEID, MENUID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SY_ROLESMENUS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SY_ROLESMENUS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SyRolesmenus">
+    insert into SY_ROLESMENUS (ID, ROLEID, MENUID
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{ROLEID,jdbcType=NUMERIC}, #{MENUID,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SyRolesmenus">
+    insert into SY_ROLESMENUS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ROLEID != null">
+        ROLEID,
+      </if>
+      <if test="MENUID != null">
+        MENUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="ROLEID != null">
+        #{ROLEID,jdbcType=NUMERIC},
+      </if>
+      <if test="MENUID != null">
+        #{MENUID,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SyRolesmenus">
+    update SY_ROLESMENUS
+    <set>
+      <if test="ROLEID != null">
+        ROLEID = #{ROLEID,jdbcType=NUMERIC},
+      </if>
+      <if test="MENUID != null">
+        MENUID = #{MENUID,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SyRolesmenus">
+    update SY_ROLESMENUS
+    set ROLEID = #{ROLEID,jdbcType=NUMERIC},
+      MENUID = #{MENUID,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

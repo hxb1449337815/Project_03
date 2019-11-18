@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BasSubstituteMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BasSubstitute">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="EMPNO" jdbcType="VARCHAR" property="EMPNO" />
+    <result column="EMPNAME" jdbcType="VARCHAR" property="EMPNAME" />
+    <result column="MOBILENO" jdbcType="NUMERIC" property="MOBILENO" />
+    <result column="TYPE" jdbcType="NUMERIC" property="TYPE" />
+    <result column="PDA" jdbcType="NUMERIC" property="PDA" />
+    <result column="STANDARDKG" jdbcType="NUMERIC" property="STANDARDKG" />
+    <result column="STANDARDLENGTH" jdbcType="NUMERIC" property="STANDARDLENGTH" />
+    <result column="MODELS" jdbcType="VARCHAR" property="MODELS" />
+    <result column="PLATEINT" jdbcType="VARCHAR" property="PLATEINT" />
+    <result column="INVALIDATEMARK" jdbcType="NUMERIC" property="INVALIDATEMARK" />
+    <result column="SUBORDINATEUNIT" jdbcType="NUMERIC" property="SUBORDINATEUNIT" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, EMPNO, EMPNAME, MOBILENO, TYPE, PDA, STANDARDKG, STANDARDLENGTH, MODELS, PLATEINT, 
+    INVALIDATEMARK, SUBORDINATEUNIT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_SUBSTITUTE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BAS_SUBSTITUTE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BasSubstitute">
+    insert into BAS_SUBSTITUTE (ID, EMPNO, EMPNAME, 
+      MOBILENO, TYPE, PDA, 
+      STANDARDKG, STANDARDLENGTH, MODELS, 
+      PLATEINT, INVALIDATEMARK, SUBORDINATEUNIT
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{EMPNO,jdbcType=VARCHAR}, #{EMPNAME,jdbcType=VARCHAR}, 
+      #{MOBILENO,jdbcType=NUMERIC}, #{TYPE,jdbcType=NUMERIC}, #{PDA,jdbcType=NUMERIC}, 
+      #{STANDARDKG,jdbcType=NUMERIC}, #{STANDARDLENGTH,jdbcType=NUMERIC}, #{MODELS,jdbcType=VARCHAR}, 
+      #{PLATEINT,jdbcType=VARCHAR}, #{INVALIDATEMARK,jdbcType=NUMERIC}, #{SUBORDINATEUNIT,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BasSubstitute">
+    insert into BAS_SUBSTITUTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="EMPNO != null">
+        EMPNO,
+      </if>
+      <if test="EMPNAME != null">
+        EMPNAME,
+      </if>
+      <if test="MOBILENO != null">
+        MOBILENO,
+      </if>
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="PDA != null">
+        PDA,
+      </if>
+      <if test="STANDARDKG != null">
+        STANDARDKG,
+      </if>
+      <if test="STANDARDLENGTH != null">
+        STANDARDLENGTH,
+      </if>
+      <if test="MODELS != null">
+        MODELS,
+      </if>
+      <if test="PLATEINT != null">
+        PLATEINT,
+      </if>
+      <if test="INVALIDATEMARK != null">
+        INVALIDATEMARK,
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="EMPNO != null">
+        #{EMPNO,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNAME != null">
+        #{EMPNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="MOBILENO != null">
+        #{MOBILENO,jdbcType=NUMERIC},
+      </if>
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="PDA != null">
+        #{PDA,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDKG != null">
+        #{STANDARDKG,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDLENGTH != null">
+        #{STANDARDLENGTH,jdbcType=NUMERIC},
+      </if>
+      <if test="MODELS != null">
+        #{MODELS,jdbcType=VARCHAR},
+      </if>
+      <if test="PLATEINT != null">
+        #{PLATEINT,jdbcType=VARCHAR},
+      </if>
+      <if test="INVALIDATEMARK != null">
+        #{INVALIDATEMARK,jdbcType=NUMERIC},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BasSubstitute">
+    update BAS_SUBSTITUTE
+    <set>
+      <if test="EMPNO != null">
+        EMPNO = #{EMPNO,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNAME != null">
+        EMPNAME = #{EMPNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="MOBILENO != null">
+        MOBILENO = #{MOBILENO,jdbcType=NUMERIC},
+      </if>
+      <if test="TYPE != null">
+        TYPE = #{TYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="PDA != null">
+        PDA = #{PDA,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDKG != null">
+        STANDARDKG = #{STANDARDKG,jdbcType=NUMERIC},
+      </if>
+      <if test="STANDARDLENGTH != null">
+        STANDARDLENGTH = #{STANDARDLENGTH,jdbcType=NUMERIC},
+      </if>
+      <if test="MODELS != null">
+        MODELS = #{MODELS,jdbcType=VARCHAR},
+      </if>
+      <if test="PLATEINT != null">
+        PLATEINT = #{PLATEINT,jdbcType=VARCHAR},
+      </if>
+      <if test="INVALIDATEMARK != null">
+        INVALIDATEMARK = #{INVALIDATEMARK,jdbcType=NUMERIC},
+      </if>
+      <if test="SUBORDINATEUNIT != null">
+        SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BasSubstitute">
+    update BAS_SUBSTITUTE
+    set EMPNO = #{EMPNO,jdbcType=VARCHAR},
+      EMPNAME = #{EMPNAME,jdbcType=VARCHAR},
+      MOBILENO = #{MOBILENO,jdbcType=NUMERIC},
+      TYPE = #{TYPE,jdbcType=NUMERIC},
+      PDA = #{PDA,jdbcType=NUMERIC},
+      STANDARDKG = #{STANDARDKG,jdbcType=NUMERIC},
+      STANDARDLENGTH = #{STANDARDLENGTH,jdbcType=NUMERIC},
+      MODELS = #{MODELS,jdbcType=VARCHAR},
+      PLATEINT = #{PLATEINT,jdbcType=VARCHAR},
+      INVALIDATEMARK = #{INVALIDATEMARK,jdbcType=NUMERIC},
+      SUBORDINATEUNIT = #{SUBORDINATEUNIT,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

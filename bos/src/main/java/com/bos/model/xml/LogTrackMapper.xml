@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.LogTrackMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.LogTrack">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="LINETYPE" jdbcType="VARCHAR" property="LINETYPE" />
+    <result column="LINENAME" jdbcType="VARCHAR" property="LINENAME" />
+    <result column="LOGISTICSCAR" jdbcType="VARCHAR" property="LOGISTICSCAR" />
+    <result column="LINESTATE" jdbcType="NUMERIC" property="LINESTATE" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="NODENAME" />
+    <result column="STARTTIME" jdbcType="TIMESTAMP" property="STARTTIME" />
+    <result column="ARRIVALTIME" jdbcType="TIMESTAMP" property="ARRIVALTIME" />
+    <result column="CARINT" jdbcType="VARCHAR" property="CARINT" />
+    <result column="NEXTNODELOAD" jdbcType="VARCHAR" property="NEXTNODELOAD" />
+    <result column="DESCRIBE" jdbcType="VARCHAR" property="DESCRIBE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, LINETYPE, LINENAME, LOGISTICSCAR, LINESTATE, NODENAME, STARTTIME, ARRIVALTIME, 
+    CARINT, NEXTNODELOAD, DESCRIBE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOG_TRACK
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from LOG_TRACK
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.LogTrack">
+    insert into LOG_TRACK (ID, LINETYPE, LINENAME, 
+      LOGISTICSCAR, LINESTATE, NODENAME, 
+      STARTTIME, ARRIVALTIME, CARINT, 
+      NEXTNODELOAD, DESCRIBE)
+    values (#{ID,jdbcType=NUMERIC}, #{LINETYPE,jdbcType=VARCHAR}, #{LINENAME,jdbcType=VARCHAR}, 
+      #{LOGISTICSCAR,jdbcType=VARCHAR}, #{LINESTATE,jdbcType=NUMERIC}, #{NODENAME,jdbcType=VARCHAR}, 
+      #{STARTTIME,jdbcType=TIMESTAMP}, #{ARRIVALTIME,jdbcType=TIMESTAMP}, #{CARINT,jdbcType=VARCHAR}, 
+      #{NEXTNODELOAD,jdbcType=VARCHAR}, #{DESCRIBE,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.LogTrack">
+    insert into LOG_TRACK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="LINETYPE != null">
+        LINETYPE,
+      </if>
+      <if test="LINENAME != null">
+        LINENAME,
+      </if>
+      <if test="LOGISTICSCAR != null">
+        LOGISTICSCAR,
+      </if>
+      <if test="LINESTATE != null">
+        LINESTATE,
+      </if>
+      <if test="NODENAME != null">
+        NODENAME,
+      </if>
+      <if test="STARTTIME != null">
+        STARTTIME,
+      </if>
+      <if test="ARRIVALTIME != null">
+        ARRIVALTIME,
+      </if>
+      <if test="CARINT != null">
+        CARINT,
+      </if>
+      <if test="NEXTNODELOAD != null">
+        NEXTNODELOAD,
+      </if>
+      <if test="DESCRIBE != null">
+        DESCRIBE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="LINETYPE != null">
+        #{LINETYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="LINENAME != null">
+        #{LINENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="LOGISTICSCAR != null">
+        #{LOGISTICSCAR,jdbcType=VARCHAR},
+      </if>
+      <if test="LINESTATE != null">
+        #{LINESTATE,jdbcType=NUMERIC},
+      </if>
+      <if test="NODENAME != null">
+        #{NODENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTTIME != null">
+        #{STARTTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ARRIVALTIME != null">
+        #{ARRIVALTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CARINT != null">
+        #{CARINT,jdbcType=VARCHAR},
+      </if>
+      <if test="NEXTNODELOAD != null">
+        #{NEXTNODELOAD,jdbcType=VARCHAR},
+      </if>
+      <if test="DESCRIBE != null">
+        #{DESCRIBE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.LogTrack">
+    update LOG_TRACK
+    <set>
+      <if test="LINETYPE != null">
+        LINETYPE = #{LINETYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="LINENAME != null">
+        LINENAME = #{LINENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="LOGISTICSCAR != null">
+        LOGISTICSCAR = #{LOGISTICSCAR,jdbcType=VARCHAR},
+      </if>
+      <if test="LINESTATE != null">
+        LINESTATE = #{LINESTATE,jdbcType=NUMERIC},
+      </if>
+      <if test="NODENAME != null">
+        NODENAME = #{NODENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="STARTTIME != null">
+        STARTTIME = #{STARTTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ARRIVALTIME != null">
+        ARRIVALTIME = #{ARRIVALTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CARINT != null">
+        CARINT = #{CARINT,jdbcType=VARCHAR},
+      </if>
+      <if test="NEXTNODELOAD != null">
+        NEXTNODELOAD = #{NEXTNODELOAD,jdbcType=VARCHAR},
+      </if>
+      <if test="DESCRIBE != null">
+        DESCRIBE = #{DESCRIBE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.LogTrack">
+    update LOG_TRACK
+    set LINETYPE = #{LINETYPE,jdbcType=VARCHAR},
+      LINENAME = #{LINENAME,jdbcType=VARCHAR},
+      LOGISTICSCAR = #{LOGISTICSCAR,jdbcType=VARCHAR},
+      LINESTATE = #{LINESTATE,jdbcType=NUMERIC},
+      NODENAME = #{NODENAME,jdbcType=VARCHAR},
+      STARTTIME = #{STARTTIME,jdbcType=TIMESTAMP},
+      ARRIVALTIME = #{ARRIVALTIME,jdbcType=TIMESTAMP},
+      CARINT = #{CARINT,jdbcType=VARCHAR},
+      NEXTNODELOAD = #{NEXTNODELOAD,jdbcType=VARCHAR},
+      DESCRIBE = #{DESCRIBE,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

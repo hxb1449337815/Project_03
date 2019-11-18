@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SyEmpMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SyEmp">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="EMPNAME" jdbcType="VARCHAR" property="EMPNAME" />
+    <result column="EMPNO" jdbcType="VARCHAR" property="EMPNO" />
+    <result column="PWD" jdbcType="VARCHAR" property="PWD" />
+    <result column="QUERYPWD" jdbcType="VARCHAR" property="QUERYPWD" />
+    <result column="ROLEID" jdbcType="NUMERIC" property="ROLEID" />
+    <result column="EMPUNIT" jdbcType="NUMERIC" property="EMPUNIT" />
+    <result column="REMARK" jdbcType="VARCHAR" property="REMARK" />
+    <result column="DISABLED" jdbcType="NUMERIC" property="DISABLED" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, EMPNAME, EMPNO, PWD, QUERYPWD, ROLEID, EMPUNIT, REMARK, DISABLED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SY_EMP
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SY_EMP
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SyEmp">
+    insert into SY_EMP (ID, EMPNAME, EMPNO, 
+      PWD, QUERYPWD, ROLEID, 
+      EMPUNIT, REMARK, DISABLED
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{EMPNAME,jdbcType=VARCHAR}, #{EMPNO,jdbcType=VARCHAR}, 
+      #{PWD,jdbcType=VARCHAR}, #{QUERYPWD,jdbcType=VARCHAR}, #{ROLEID,jdbcType=NUMERIC}, 
+      #{EMPUNIT,jdbcType=NUMERIC}, #{REMARK,jdbcType=VARCHAR}, #{DISABLED,jdbcType=NUMERIC}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SyEmp">
+    insert into SY_EMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="EMPNAME != null">
+        EMPNAME,
+      </if>
+      <if test="EMPNO != null">
+        EMPNO,
+      </if>
+      <if test="PWD != null">
+        PWD,
+      </if>
+      <if test="QUERYPWD != null">
+        QUERYPWD,
+      </if>
+      <if test="ROLEID != null">
+        ROLEID,
+      </if>
+      <if test="EMPUNIT != null">
+        EMPUNIT,
+      </if>
+      <if test="REMARK != null">
+        REMARK,
+      </if>
+      <if test="DISABLED != null">
+        DISABLED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="EMPNAME != null">
+        #{EMPNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNO != null">
+        #{EMPNO,jdbcType=VARCHAR},
+      </if>
+      <if test="PWD != null">
+        #{PWD,jdbcType=VARCHAR},
+      </if>
+      <if test="QUERYPWD != null">
+        #{QUERYPWD,jdbcType=VARCHAR},
+      </if>
+      <if test="ROLEID != null">
+        #{ROLEID,jdbcType=NUMERIC},
+      </if>
+      <if test="EMPUNIT != null">
+        #{EMPUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="REMARK != null">
+        #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="DISABLED != null">
+        #{DISABLED,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SyEmp">
+    update SY_EMP
+    <set>
+      <if test="EMPNAME != null">
+        EMPNAME = #{EMPNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="EMPNO != null">
+        EMPNO = #{EMPNO,jdbcType=VARCHAR},
+      </if>
+      <if test="PWD != null">
+        PWD = #{PWD,jdbcType=VARCHAR},
+      </if>
+      <if test="QUERYPWD != null">
+        QUERYPWD = #{QUERYPWD,jdbcType=VARCHAR},
+      </if>
+      <if test="ROLEID != null">
+        ROLEID = #{ROLEID,jdbcType=NUMERIC},
+      </if>
+      <if test="EMPUNIT != null">
+        EMPUNIT = #{EMPUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="REMARK != null">
+        REMARK = #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="DISABLED != null">
+        DISABLED = #{DISABLED,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SyEmp">
+    update SY_EMP
+    set EMPNAME = #{EMPNAME,jdbcType=VARCHAR},
+      EMPNO = #{EMPNO,jdbcType=VARCHAR},
+      PWD = #{PWD,jdbcType=VARCHAR},
+      QUERYPWD = #{QUERYPWD,jdbcType=VARCHAR},
+      ROLEID = #{ROLEID,jdbcType=NUMERIC},
+      EMPUNIT = #{EMPUNIT,jdbcType=NUMERIC},
+      REMARK = #{REMARK,jdbcType=VARCHAR},
+      DISABLED = #{DISABLED,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

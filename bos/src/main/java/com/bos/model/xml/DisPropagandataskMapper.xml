@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.DisPropagandataskMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.DisPropagandatask">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="OUTLINE" jdbcType="VARCHAR" property="OUTLINE" />
+    <result column="RELEASETIME" jdbcType="TIMESTAMP" property="RELEASETIME" />
+    <result column="FAILURETIME" jdbcType="TIMESTAMP" property="FAILURETIME" />
+    <result column="STATUS" jdbcType="NUMERIC" property="STATUS" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="CONTENT" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, OUTLINE, RELEASETIME, FAILURETIME, STATUS, CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DIS_PROPAGANDATASK
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from DIS_PROPAGANDATASK
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.DisPropagandatask">
+    insert into DIS_PROPAGANDATASK (ID, OUTLINE, RELEASETIME, 
+      FAILURETIME, STATUS, CONTENT
+      )
+    values (#{ID,jdbcType=NUMERIC}, #{OUTLINE,jdbcType=VARCHAR}, #{RELEASETIME,jdbcType=TIMESTAMP}, 
+      #{FAILURETIME,jdbcType=TIMESTAMP}, #{STATUS,jdbcType=NUMERIC}, #{CONTENT,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.DisPropagandatask">
+    insert into DIS_PROPAGANDATASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="OUTLINE != null">
+        OUTLINE,
+      </if>
+      <if test="RELEASETIME != null">
+        RELEASETIME,
+      </if>
+      <if test="FAILURETIME != null">
+        FAILURETIME,
+      </if>
+      <if test="STATUS != null">
+        STATUS,
+      </if>
+      <if test="CONTENT != null">
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="OUTLINE != null">
+        #{OUTLINE,jdbcType=VARCHAR},
+      </if>
+      <if test="RELEASETIME != null">
+        #{RELEASETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="FAILURETIME != null">
+        #{FAILURETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="STATUS != null">
+        #{STATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="CONTENT != null">
+        #{CONTENT,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.DisPropagandatask">
+    update DIS_PROPAGANDATASK
+    <set>
+      <if test="OUTLINE != null">
+        OUTLINE = #{OUTLINE,jdbcType=VARCHAR},
+      </if>
+      <if test="RELEASETIME != null">
+        RELEASETIME = #{RELEASETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="FAILURETIME != null">
+        FAILURETIME = #{FAILURETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="STATUS != null">
+        STATUS = #{STATUS,jdbcType=NUMERIC},
+      </if>
+      <if test="CONTENT != null">
+        CONTENT = #{CONTENT,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.DisPropagandatask">
+    update DIS_PROPAGANDATASK
+    set OUTLINE = #{OUTLINE,jdbcType=VARCHAR},
+      RELEASETIME = #{RELEASETIME,jdbcType=TIMESTAMP},
+      FAILURETIME = #{FAILURETIME,jdbcType=TIMESTAMP},
+      STATUS = #{STATUS,jdbcType=NUMERIC},
+      CONTENT = #{CONTENT,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

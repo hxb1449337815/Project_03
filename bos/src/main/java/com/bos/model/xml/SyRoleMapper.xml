@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SyRoleMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SyRole">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="ROLENAME" jdbcType="VARCHAR" property="ROLENAME" />
+    <result column="ROLEDESC" jdbcType="VARCHAR" property="ROLEDESC" />
+    <result column="DISABLED" jdbcType="NUMERIC" property="DISABLED" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ROLENAME, ROLEDESC, DISABLED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SY_ROLE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SY_ROLE
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SyRole">
+    insert into SY_ROLE (ID, ROLENAME, ROLEDESC, 
+      DISABLED)
+    values (#{ID,jdbcType=NUMERIC}, #{ROLENAME,jdbcType=VARCHAR}, #{ROLEDESC,jdbcType=VARCHAR}, 
+      #{DISABLED,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SyRole">
+    insert into SY_ROLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ROLENAME != null">
+        ROLENAME,
+      </if>
+      <if test="ROLEDESC != null">
+        ROLEDESC,
+      </if>
+      <if test="DISABLED != null">
+        DISABLED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="ROLENAME != null">
+        #{ROLENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="ROLEDESC != null">
+        #{ROLEDESC,jdbcType=VARCHAR},
+      </if>
+      <if test="DISABLED != null">
+        #{DISABLED,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SyRole">
+    update SY_ROLE
+    <set>
+      <if test="ROLENAME != null">
+        ROLENAME = #{ROLENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="ROLEDESC != null">
+        ROLEDESC = #{ROLEDESC,jdbcType=VARCHAR},
+      </if>
+      <if test="DISABLED != null">
+        DISABLED = #{DISABLED,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SyRole">
+    update SY_ROLE
+    set ROLENAME = #{ROLENAME,jdbcType=VARCHAR},
+      ROLEDESC = #{ROLEDESC,jdbcType=VARCHAR},
+      DISABLED = #{DISABLED,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

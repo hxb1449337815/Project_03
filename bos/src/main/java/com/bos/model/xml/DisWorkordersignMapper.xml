@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.DisWorkordersignMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.DisWorkordersign">
+    <result column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="WORKORDERID" jdbcType="NUMERIC" property="WORKORDERID" />
+    <result column="WORKSHEETNO" jdbcType="VARCHAR" property="WORKSHEETNO" />
+    <result column="WORKORDERTYPE" jdbcType="NUMERIC" property="WORKORDERTYPE" />
+    <result column="SIGNTYPE" jdbcType="NUMERIC" property="SIGNTYPE" />
+    <result column="COURIERINT" jdbcType="NUMERIC" property="COURIERINT" />
+    <result column="COURIERNAME" jdbcType="VARCHAR" property="COURIERNAME" />
+    <result column="RECIPIENT" jdbcType="VARCHAR" property="RECIPIENT" />
+    <result column="SIGNUNIT" jdbcType="NUMERIC" property="SIGNUNIT" />
+    <result column="SIGNTIME" jdbcType="TIMESTAMP" property="SIGNTIME" />
+    <result column="INVALIDATEMARK" jdbcType="NUMERIC" property="INVALIDATEMARK" />
+    <result column="ABNORMALMARK" jdbcType="VARCHAR" property="ABNORMALMARK" />
+    <result column="INPUTPERSONCODE" jdbcType="NUMERIC" property="INPUTPERSONCODE" />
+    <result column="INPUTPERSONID" jdbcType="NUMERIC" property="INPUTPERSONID" />
+    <result column="INPUTID" jdbcType="NUMERIC" property="INPUTID" />
+    <result column="INPUTTIME" jdbcType="TIMESTAMP" property="INPUTTIME" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bos.model.DisWorkordersign">
+    insert into DIS_WORKORDERSIGN (ID, WORKORDERID, WORKSHEETNO, 
+      WORKORDERTYPE, SIGNTYPE, COURIERINT, 
+      COURIERNAME, RECIPIENT, SIGNUNIT, 
+      SIGNTIME, INVALIDATEMARK, ABNORMALMARK, 
+      INPUTPERSONCODE, INPUTPERSONID, INPUTID, 
+      INPUTTIME)
+    values (#{ID,jdbcType=NUMERIC}, #{WORKORDERID,jdbcType=NUMERIC}, #{WORKSHEETNO,jdbcType=VARCHAR}, 
+      #{WORKORDERTYPE,jdbcType=NUMERIC}, #{SIGNTYPE,jdbcType=NUMERIC}, #{COURIERINT,jdbcType=NUMERIC}, 
+      #{COURIERNAME,jdbcType=VARCHAR}, #{RECIPIENT,jdbcType=VARCHAR}, #{SIGNUNIT,jdbcType=NUMERIC}, 
+      #{SIGNTIME,jdbcType=TIMESTAMP}, #{INVALIDATEMARK,jdbcType=NUMERIC}, #{ABNORMALMARK,jdbcType=VARCHAR}, 
+      #{INPUTPERSONCODE,jdbcType=NUMERIC}, #{INPUTPERSONID,jdbcType=NUMERIC}, #{INPUTID,jdbcType=NUMERIC}, 
+      #{INPUTTIME,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.DisWorkordersign">
+    insert into DIS_WORKORDERSIGN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="WORKORDERID != null">
+        WORKORDERID,
+      </if>
+      <if test="WORKSHEETNO != null">
+        WORKSHEETNO,
+      </if>
+      <if test="WORKORDERTYPE != null">
+        WORKORDERTYPE,
+      </if>
+      <if test="SIGNTYPE != null">
+        SIGNTYPE,
+      </if>
+      <if test="COURIERINT != null">
+        COURIERINT,
+      </if>
+      <if test="COURIERNAME != null">
+        COURIERNAME,
+      </if>
+      <if test="RECIPIENT != null">
+        RECIPIENT,
+      </if>
+      <if test="SIGNUNIT != null">
+        SIGNUNIT,
+      </if>
+      <if test="SIGNTIME != null">
+        SIGNTIME,
+      </if>
+      <if test="INVALIDATEMARK != null">
+        INVALIDATEMARK,
+      </if>
+      <if test="ABNORMALMARK != null">
+        ABNORMALMARK,
+      </if>
+      <if test="INPUTPERSONCODE != null">
+        INPUTPERSONCODE,
+      </if>
+      <if test="INPUTPERSONID != null">
+        INPUTPERSONID,
+      </if>
+      <if test="INPUTID != null">
+        INPUTID,
+      </if>
+      <if test="INPUTTIME != null">
+        INPUTTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKORDERID != null">
+        #{WORKORDERID,jdbcType=NUMERIC},
+      </if>
+      <if test="WORKSHEETNO != null">
+        #{WORKSHEETNO,jdbcType=VARCHAR},
+      </if>
+      <if test="WORKORDERTYPE != null">
+        #{WORKORDERTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="SIGNTYPE != null">
+        #{SIGNTYPE,jdbcType=NUMERIC},
+      </if>
+      <if test="COURIERINT != null">
+        #{COURIERINT,jdbcType=NUMERIC},
+      </if>
+      <if test="COURIERNAME != null">
+        #{COURIERNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="RECIPIENT != null">
+        #{RECIPIENT,jdbcType=VARCHAR},
+      </if>
+      <if test="SIGNUNIT != null">
+        #{SIGNUNIT,jdbcType=NUMERIC},
+      </if>
+      <if test="SIGNTIME != null">
+        #{SIGNTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="INVALIDATEMARK != null">
+        #{INVALIDATEMARK,jdbcType=NUMERIC},
+      </if>
+      <if test="ABNORMALMARK != null">
+        #{ABNORMALMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTPERSONCODE != null">
+        #{INPUTPERSONCODE,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTPERSONID != null">
+        #{INPUTPERSONID,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTID != null">
+        #{INPUTID,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTTIME != null">
+        #{INPUTTIME,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

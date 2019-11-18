@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.IaeTimeinputMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.IaeTimeinput">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="INPUTTYPE" jdbcType="VARCHAR" property="INPUTTYPE" />
+    <result column="PORT" jdbcType="VARCHAR" property="PORT" />
+    <result column="DEMAND" jdbcType="NUMERIC" property="DEMAND" />
+    <result column="VEHICLEINT" jdbcType="VARCHAR" property="VEHICLEINT" />
+    <result column="WAYBILLID" jdbcType="VARCHAR" property="WAYBILLID" />
+    <result column="EXPECTARRIVALDATE" jdbcType="TIMESTAMP" property="EXPECTARRIVALDATE" />
+    <result column="EXPECTDEPARTUREDATE" jdbcType="TIMESTAMP" property="EXPECTDEPARTUREDATE" />
+    <result column="ACTUALARRIVALDATE" jdbcType="TIMESTAMP" property="ACTUALARRIVALDATE" />
+    <result column="ACTUALDEPARTUREDATE" jdbcType="TIMESTAMP" property="ACTUALDEPARTUREDATE" />
+    <result column="START" jdbcType="VARCHAR" property="START" />
+    <result column="CARRIERS" jdbcType="NUMERIC" property="CARRIERS" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="REMARKS" />
+    <result column="INPUTPERSON" jdbcType="NUMERIC" property="INPUTPERSON" />
+    <result column="INPUTDATE" jdbcType="TIMESTAMP" property="INPUTDATE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, INPUTTYPE, PORT, DEMAND, VEHICLEINT, WAYBILLID, EXPECTARRIVALDATE, EXPECTDEPARTUREDATE, 
+    ACTUALARRIVALDATE, ACTUALDEPARTUREDATE, START, CARRIERS, REMARKS, INPUTPERSON, INPUTDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IAE_TIMEINPUT
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from IAE_TIMEINPUT
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.IaeTimeinput">
+    insert into IAE_TIMEINPUT (ID, INPUTTYPE, PORT, 
+      DEMAND, VEHICLEINT, WAYBILLID, 
+      EXPECTARRIVALDATE, EXPECTDEPARTUREDATE, 
+      ACTUALARRIVALDATE, ACTUALDEPARTUREDATE, 
+      START, CARRIERS, REMARKS, 
+      INPUTPERSON, INPUTDATE)
+    values (#{ID,jdbcType=NUMERIC}, #{INPUTTYPE,jdbcType=VARCHAR}, #{PORT,jdbcType=VARCHAR}, 
+      #{DEMAND,jdbcType=NUMERIC}, #{VEHICLEINT,jdbcType=VARCHAR}, #{WAYBILLID,jdbcType=VARCHAR}, 
+      #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP}, #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP}, 
+      #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP}, #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP}, 
+      #{START,jdbcType=VARCHAR}, #{CARRIERS,jdbcType=NUMERIC}, #{REMARKS,jdbcType=VARCHAR}, 
+      #{INPUTPERSON,jdbcType=NUMERIC}, #{INPUTDATE,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.IaeTimeinput">
+    insert into IAE_TIMEINPUT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="INPUTTYPE != null">
+        INPUTTYPE,
+      </if>
+      <if test="PORT != null">
+        PORT,
+      </if>
+      <if test="DEMAND != null">
+        DEMAND,
+      </if>
+      <if test="VEHICLEINT != null">
+        VEHICLEINT,
+      </if>
+      <if test="WAYBILLID != null">
+        WAYBILLID,
+      </if>
+      <if test="EXPECTARRIVALDATE != null">
+        EXPECTARRIVALDATE,
+      </if>
+      <if test="EXPECTDEPARTUREDATE != null">
+        EXPECTDEPARTUREDATE,
+      </if>
+      <if test="ACTUALARRIVALDATE != null">
+        ACTUALARRIVALDATE,
+      </if>
+      <if test="ACTUALDEPARTUREDATE != null">
+        ACTUALDEPARTUREDATE,
+      </if>
+      <if test="START != null">
+        START,
+      </if>
+      <if test="CARRIERS != null">
+        CARRIERS,
+      </if>
+      <if test="REMARKS != null">
+        REMARKS,
+      </if>
+      <if test="INPUTPERSON != null">
+        INPUTPERSON,
+      </if>
+      <if test="INPUTDATE != null">
+        INPUTDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTTYPE != null">
+        #{INPUTTYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="PORT != null">
+        #{PORT,jdbcType=VARCHAR},
+      </if>
+      <if test="DEMAND != null">
+        #{DEMAND,jdbcType=NUMERIC},
+      </if>
+      <if test="VEHICLEINT != null">
+        #{VEHICLEINT,jdbcType=VARCHAR},
+      </if>
+      <if test="WAYBILLID != null">
+        #{WAYBILLID,jdbcType=VARCHAR},
+      </if>
+      <if test="EXPECTARRIVALDATE != null">
+        #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="EXPECTDEPARTUREDATE != null">
+        #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALARRIVALDATE != null">
+        #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALDEPARTUREDATE != null">
+        #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="START != null">
+        #{START,jdbcType=VARCHAR},
+      </if>
+      <if test="CARRIERS != null">
+        #{CARRIERS,jdbcType=NUMERIC},
+      </if>
+      <if test="REMARKS != null">
+        #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTPERSON != null">
+        #{INPUTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTDATE != null">
+        #{INPUTDATE,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.IaeTimeinput">
+    update IAE_TIMEINPUT
+    <set>
+      <if test="INPUTTYPE != null">
+        INPUTTYPE = #{INPUTTYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="PORT != null">
+        PORT = #{PORT,jdbcType=VARCHAR},
+      </if>
+      <if test="DEMAND != null">
+        DEMAND = #{DEMAND,jdbcType=NUMERIC},
+      </if>
+      <if test="VEHICLEINT != null">
+        VEHICLEINT = #{VEHICLEINT,jdbcType=VARCHAR},
+      </if>
+      <if test="WAYBILLID != null">
+        WAYBILLID = #{WAYBILLID,jdbcType=VARCHAR},
+      </if>
+      <if test="EXPECTARRIVALDATE != null">
+        EXPECTARRIVALDATE = #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="EXPECTDEPARTUREDATE != null">
+        EXPECTDEPARTUREDATE = #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALARRIVALDATE != null">
+        ACTUALARRIVALDATE = #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ACTUALDEPARTUREDATE != null">
+        ACTUALDEPARTUREDATE = #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="START != null">
+        START = #{START,jdbcType=VARCHAR},
+      </if>
+      <if test="CARRIERS != null">
+        CARRIERS = #{CARRIERS,jdbcType=NUMERIC},
+      </if>
+      <if test="REMARKS != null">
+        REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="INPUTPERSON != null">
+        INPUTPERSON = #{INPUTPERSON,jdbcType=NUMERIC},
+      </if>
+      <if test="INPUTDATE != null">
+        INPUTDATE = #{INPUTDATE,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.IaeTimeinput">
+    update IAE_TIMEINPUT
+    set INPUTTYPE = #{INPUTTYPE,jdbcType=VARCHAR},
+      PORT = #{PORT,jdbcType=VARCHAR},
+      DEMAND = #{DEMAND,jdbcType=NUMERIC},
+      VEHICLEINT = #{VEHICLEINT,jdbcType=VARCHAR},
+      WAYBILLID = #{WAYBILLID,jdbcType=VARCHAR},
+      EXPECTARRIVALDATE = #{EXPECTARRIVALDATE,jdbcType=TIMESTAMP},
+      EXPECTDEPARTUREDATE = #{EXPECTDEPARTUREDATE,jdbcType=TIMESTAMP},
+      ACTUALARRIVALDATE = #{ACTUALARRIVALDATE,jdbcType=TIMESTAMP},
+      ACTUALDEPARTUREDATE = #{ACTUALDEPARTUREDATE,jdbcType=TIMESTAMP},
+      START = #{START,jdbcType=VARCHAR},
+      CARRIERS = #{CARRIERS,jdbcType=NUMERIC},
+      REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      INPUTPERSON = #{INPUTPERSON,jdbcType=NUMERIC},
+      INPUTDATE = #{INPUTDATE,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.IaeArrivalMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.IaeArrival">
+    <id column="ID" jdbcType="VARCHAR" property="ID" />
+    <result column="SENDCOMPANY" jdbcType="VARCHAR" property="SENDCOMPANY" />
+    <result column="CARGOADDRESS" jdbcType="VARCHAR" property="CARGOADDRESS" />
+    <result column="ISSUEPERSON" jdbcType="VARCHAR" property="ISSUEPERSON" />
+    <result column="ISSUEDATE" jdbcType="TIMESTAMP" property="ISSUEDATE" />
+    <result column="WORKADDRESS" jdbcType="VARCHAR" property="WORKADDRESS" />
+    <result column="STORAGEDATE" jdbcType="TIMESTAMP" property="STORAGEDATE" />
+    <result column="OUTBOUNDDATE" jdbcType="TIMESTAMP" property="OUTBOUNDDATE" />
+    <result column="TIMELIMIT" jdbcType="TIMESTAMP" property="TIMELIMIT" />
+    <result column="BATCH" jdbcType="NUMERIC" property="BATCH" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, SENDCOMPANY, CARGOADDRESS, ISSUEPERSON, ISSUEDATE, WORKADDRESS, STORAGEDATE, 
+    OUTBOUNDDATE, TIMELIMIT, BATCH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IAE_ARRIVAL
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from IAE_ARRIVAL
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.IaeArrival">
+    insert into IAE_ARRIVAL (ID, SENDCOMPANY, CARGOADDRESS, 
+      ISSUEPERSON, ISSUEDATE, WORKADDRESS, 
+      STORAGEDATE, OUTBOUNDDATE, TIMELIMIT, 
+      BATCH)
+    values (#{ID,jdbcType=VARCHAR}, #{SENDCOMPANY,jdbcType=VARCHAR}, #{CARGOADDRESS,jdbcType=VARCHAR}, 
+      #{ISSUEPERSON,jdbcType=VARCHAR}, #{ISSUEDATE,jdbcType=TIMESTAMP}, #{WORKADDRESS,jdbcType=VARCHAR}, 
+      #{STORAGEDATE,jdbcType=TIMESTAMP}, #{OUTBOUNDDATE,jdbcType=TIMESTAMP}, #{TIMELIMIT,jdbcType=TIMESTAMP}, 
+      #{BATCH,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.IaeArrival">
+    insert into IAE_ARRIVAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="SENDCOMPANY != null">
+        SENDCOMPANY,
+      </if>
+      <if test="CARGOADDRESS != null">
+        CARGOADDRESS,
+      </if>
+      <if test="ISSUEPERSON != null">
+        ISSUEPERSON,
+      </if>
+      <if test="ISSUEDATE != null">
+        ISSUEDATE,
+      </if>
+      <if test="WORKADDRESS != null">
+        WORKADDRESS,
+      </if>
+      <if test="STORAGEDATE != null">
+        STORAGEDATE,
+      </if>
+      <if test="OUTBOUNDDATE != null">
+        OUTBOUNDDATE,
+      </if>
+      <if test="TIMELIMIT != null">
+        TIMELIMIT,
+      </if>
+      <if test="BATCH != null">
+        BATCH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="SENDCOMPANY != null">
+        #{SENDCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="CARGOADDRESS != null">
+        #{CARGOADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUEPERSON != null">
+        #{ISSUEPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUEDATE != null">
+        #{ISSUEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="WORKADDRESS != null">
+        #{WORKADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="STORAGEDATE != null">
+        #{STORAGEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="OUTBOUNDDATE != null">
+        #{OUTBOUNDDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="TIMELIMIT != null">
+        #{TIMELIMIT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="BATCH != null">
+        #{BATCH,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.IaeArrival">
+    update IAE_ARRIVAL
+    <set>
+      <if test="SENDCOMPANY != null">
+        SENDCOMPANY = #{SENDCOMPANY,jdbcType=VARCHAR},
+      </if>
+      <if test="CARGOADDRESS != null">
+        CARGOADDRESS = #{CARGOADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUEPERSON != null">
+        ISSUEPERSON = #{ISSUEPERSON,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUEDATE != null">
+        ISSUEDATE = #{ISSUEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="WORKADDRESS != null">
+        WORKADDRESS = #{WORKADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="STORAGEDATE != null">
+        STORAGEDATE = #{STORAGEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="OUTBOUNDDATE != null">
+        OUTBOUNDDATE = #{OUTBOUNDDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="TIMELIMIT != null">
+        TIMELIMIT = #{TIMELIMIT,jdbcType=TIMESTAMP},
+      </if>
+      <if test="BATCH != null">
+        BATCH = #{BATCH,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.IaeArrival">
+    update IAE_ARRIVAL
+    set SENDCOMPANY = #{SENDCOMPANY,jdbcType=VARCHAR},
+      CARGOADDRESS = #{CARGOADDRESS,jdbcType=VARCHAR},
+      ISSUEPERSON = #{ISSUEPERSON,jdbcType=VARCHAR},
+      ISSUEDATE = #{ISSUEDATE,jdbcType=TIMESTAMP},
+      WORKADDRESS = #{WORKADDRESS,jdbcType=VARCHAR},
+      STORAGEDATE = #{STORAGEDATE,jdbcType=TIMESTAMP},
+      OUTBOUNDDATE = #{OUTBOUNDDATE,jdbcType=TIMESTAMP},
+      TIMELIMIT = #{TIMELIMIT,jdbcType=TIMESTAMP},
+      BATCH = #{BATCH,jdbcType=NUMERIC}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.BasBasicarchivesMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.BasBasicarchives">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="NAME" jdbcType="VARCHAR" property="NAME" />
+    <result column="GRADE" jdbcType="NUMERIC" property="GRADE" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="REMARKS" />
+    <result column="OPERATORID" jdbcType="NUMERIC" property="OPERATORID" />
+    <result column="OPERATIONUNITID" jdbcType="NUMERIC" property="OPERATIONUNITID" />
+    <result column="OPERATIONTIME" jdbcType="TIMESTAMP" property="OPERATIONTIME" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NAME, GRADE, REMARKS, OPERATORID, OPERATIONUNITID, OPERATIONTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_BASICARCHIVES
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from BAS_BASICARCHIVES
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.BasBasicarchives">
+    insert into BAS_BASICARCHIVES (ID, NAME, GRADE, 
+      REMARKS, OPERATORID, OPERATIONUNITID, 
+      OPERATIONTIME)
+    values (#{ID,jdbcType=NUMERIC}, #{NAME,jdbcType=VARCHAR}, #{GRADE,jdbcType=NUMERIC}, 
+      #{REMARKS,jdbcType=VARCHAR}, #{OPERATORID,jdbcType=NUMERIC}, #{OPERATIONUNITID,jdbcType=NUMERIC}, 
+      #{OPERATIONTIME,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.BasBasicarchives">
+    insert into BAS_BASICARCHIVES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="NAME != null">
+        NAME,
+      </if>
+      <if test="GRADE != null">
+        GRADE,
+      </if>
+      <if test="REMARKS != null">
+        REMARKS,
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID,
+      </if>
+      <if test="OPERATIONUNITID != null">
+        OPERATIONUNITID,
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="NAME != null">
+        #{NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="GRADE != null">
+        #{GRADE,jdbcType=NUMERIC},
+      </if>
+      <if test="REMARKS != null">
+        #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATORID != null">
+        #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONUNITID != null">
+        #{OPERATIONUNITID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.BasBasicarchives">
+    update BAS_BASICARCHIVES
+    <set>
+      <if test="NAME != null">
+        NAME = #{NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="GRADE != null">
+        GRADE = #{GRADE,jdbcType=NUMERIC},
+      </if>
+      <if test="REMARKS != null">
+        REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONUNITID != null">
+        OPERATIONUNITID = #{OPERATIONUNITID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.BasBasicarchives">
+    update BAS_BASICARCHIVES
+    set NAME = #{NAME,jdbcType=VARCHAR},
+      GRADE = #{GRADE,jdbcType=NUMERIC},
+      REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      OPERATIONUNITID = #{OPERATIONUNITID,jdbcType=NUMERIC},
+      OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

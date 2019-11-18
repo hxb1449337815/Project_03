@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SyUnitsMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SyUnits">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="NAME" jdbcType="VARCHAR" property="NAME" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="REMARKS" />
+    <result column="OPERATORID" jdbcType="NUMERIC" property="OPERATORID" />
+    <result column="OPERATIONTIME" jdbcType="TIMESTAMP" property="OPERATIONTIME" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NAME, REMARKS, OPERATORID, OPERATIONTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SY_UNITS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SY_UNITS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SyUnits">
+    insert into SY_UNITS (ID, NAME, REMARKS, 
+      OPERATORID, OPERATIONTIME)
+    values (#{ID,jdbcType=NUMERIC}, #{NAME,jdbcType=VARCHAR}, #{REMARKS,jdbcType=VARCHAR}, 
+      #{OPERATORID,jdbcType=NUMERIC}, #{OPERATIONTIME,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SyUnits">
+    insert into SY_UNITS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="NAME != null">
+        NAME,
+      </if>
+      <if test="REMARKS != null">
+        REMARKS,
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID,
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="NAME != null">
+        #{NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARKS != null">
+        #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATORID != null">
+        #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SyUnits">
+    update SY_UNITS
+    <set>
+      <if test="NAME != null">
+        NAME = #{NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARKS != null">
+        REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATORID != null">
+        OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      </if>
+      <if test="OPERATIONTIME != null">
+        OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SyUnits">
+    update SY_UNITS
+    set NAME = #{NAME,jdbcType=VARCHAR},
+      REMARKS = #{REMARKS,jdbcType=VARCHAR},
+      OPERATORID = #{OPERATORID,jdbcType=NUMERIC},
+      OPERATIONTIME = #{OPERATIONTIME,jdbcType=TIMESTAMP}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bos.mapper.SyMenusMapper">
+  <resultMap id="BaseResultMap" type="com.bos.model.SyMenus">
+    <id column="ID" jdbcType="NUMERIC" property="ID" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="PARENTID" />
+    <result column="TYPE" jdbcType="VARCHAR" property="TYPE" />
+    <result column="TEXT" jdbcType="VARCHAR" property="TEXT" />
+    <result column="URL" jdbcType="VARCHAR" property="URL" />
+    <result column="TIP" jdbcType="VARCHAR" property="TIP" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PARENTID, TYPE, TEXT, URL, TIP
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SY_MENUS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from SY_MENUS
+    where ID = #{ID,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.bos.model.SyMenus">
+    insert into SY_MENUS (ID, PARENTID, TYPE, 
+      TEXT, URL, TIP)
+    values (#{ID,jdbcType=NUMERIC}, #{PARENTID,jdbcType=VARCHAR}, #{TYPE,jdbcType=VARCHAR}, 
+      #{TEXT,jdbcType=VARCHAR}, #{URL,jdbcType=VARCHAR}, #{TIP,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bos.model.SyMenus">
+    insert into SY_MENUS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="PARENTID != null">
+        PARENTID,
+      </if>
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="TEXT != null">
+        TEXT,
+      </if>
+      <if test="URL != null">
+        URL,
+      </if>
+      <if test="TIP != null">
+        TIP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=NUMERIC},
+      </if>
+      <if test="PARENTID != null">
+        #{PARENTID,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="TEXT != null">
+        #{TEXT,jdbcType=VARCHAR},
+      </if>
+      <if test="URL != null">
+        #{URL,jdbcType=VARCHAR},
+      </if>
+      <if test="TIP != null">
+        #{TIP,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bos.model.SyMenus">
+    update SY_MENUS
+    <set>
+      <if test="PARENTID != null">
+        PARENTID = #{PARENTID,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null">
+        TYPE = #{TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="TEXT != null">
+        TEXT = #{TEXT,jdbcType=VARCHAR},
+      </if>
+      <if test="URL != null">
+        URL = #{URL,jdbcType=VARCHAR},
+      </if>
+      <if test="TIP != null">
+        TIP = #{TIP,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bos.model.SyMenus">
+    update SY_MENUS
+    set PARENTID = #{PARENTID,jdbcType=VARCHAR},
+      TYPE = #{TYPE,jdbcType=VARCHAR},
+      TEXT = #{TEXT,jdbcType=VARCHAR},
+      URL = #{URL,jdbcType=VARCHAR},
+      TIP = #{TIP,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=NUMERIC}
+  </update>
+</mapper>
